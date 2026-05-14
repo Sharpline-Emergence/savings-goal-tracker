@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Sharpline | VaultGoal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a0f;
+    --paper: #f5f0e8;
+    --sage: #4a7c59;
+    --gold: #c8922a;
+    --cream: #faf7f0;
+    --muted: #8a8a7a;
+    --border: #d8d0c0;
+    --sage-pale: #d4e8da;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+  }
+  header {
+    padding: 2.5rem 3rem 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--sage); letter-spacing: -0.02em; }
+  .logo span { color: var(--gold); }
+  .tagline { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
+  nav {
+    padding: 1rem 3rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  nav a { color: var(--sage); text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  .container {
+    max-width: 720px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--sage);
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin: 2rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  p {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .highlight {
+    background: var(--sage-pale);
+    border-left: 3px solid var(--sage);
+    padding: 1rem 1.2rem;
+    border-radius: 0 2px 2px 0;
+    font-size: 0.8rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .feature-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.2rem;
+  }
+  .feature-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .feature-title {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--sage);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  .feature-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.7; }
+  .cta {
+    background: var(--sage);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 0.85rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: background 0.2s;
+  }
+  .cta:hover { background: #3d6849; }
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+  footer a { color: var(--sage); text-decoration: none; }
+  @media (max-width: 540px) {
+    .features { grid-template-columns: 1fr; }
+    header { padding: 1.5rem; flex-direction: column; gap: 0.3rem; }
+    nav { padding: 1rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Sharpline<span>.</span></div>
+  <div class="tagline">Savings Goal Tracker | vaultgoal.com</div>
+</header>
+
+<nav>
+  <a href="index.html">← Back to Calculator</a> &nbsp;·&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+  <h1>About VaultGoal</h1>
+
+  <div class="highlight">
+    VaultGoal is a free, no-nonsense savings goal tracker built for everyday people who want a simple, honest answer to one question: <em>"When will I reach my savings goal?"</em>
+  </div>
+
+  <h2>What We Do</h2>
+  <p>VaultGoal is a lightweight financial utility tool that helps you visualize your savings journey. Enter your goal, your current savings, and your monthly contribution — and we'll show you exactly when you'll get there, with milestone checkpoints along the way.</p>
+  <p>No sign-up required. No data collected. No complicated spreadsheets. Just clear, honest numbers calculated instantly in your browser.</p>
+
+  <h2>Features</h2>
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-title">Goal Tracking</div>
+      <div class="feature-desc">Set any savings target and track your progress with a live visual indicator.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <div class="feature-title">Timeline Calculator</div>
+      <div class="feature-desc">See exactly how many months until you reach your goal, with a real target date.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Milestone Markers</div>
+      <div class="feature-desc">Track your 25%, 50%, 75%, and 100% milestones with projected dates for each.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <div class="feature-title">Interest Calculator</div>
+      <div class="feature-desc">Factor in your savings account APY to see how compound interest accelerates your goal.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🖨️</div>
+      <div class="feature-title">Print Your Results</div>
+      <div class="feature-desc">Print a clean summary of your savings plan to keep on your desk or fridge.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✉️</div>
+      <div class="feature-title">Email Your Plan</div>
+      <div class="feature-desc">Forward your results to a partner, family member, or financial advisor instantly.</div>
+    </div>
+  </div>
+
+  <h2>Who Is This For</h2>
+  <p>VaultGoal is built for anyone working toward a financial goal — whether that's building an emergency fund, saving for a home down payment, planning a vacation, paying off debt, or simply putting money aside for a rainy day.</p>
+  <p>We believe financial planning tools should be free, simple, and accessible to everyone — not locked behind paywalls or complicated apps.</p>
+
+  <h2>About Sharpline</h2>
+  <p>VaultGoal is a Sharpline utility tool. Sharpline builds clean, focused web tools designed to give people fast, accurate answers without the clutter. All Sharpline tools are free to use and supported by advertising.</p>
+
+  <a href="index.html" class="cta">Try the Calculator →</a>
+</div>
+
+<footer>
+  Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="about.html">About</a> &nbsp;·&nbsp;
+  <a href="contact.html">Contact</a>
+</footer>
+
+</body>
+</html>

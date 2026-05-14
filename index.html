@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SavePath — Savings Goal Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a0f;
+    --paper: #f5f0e8;
+    --sage: #4a7c59;
+    --sage-light: #7aaa8a;
+    --sage-pale: #d4e8da;
+    --gold: #c8922a;
+    --gold-light: #f0c060;
+    --cream: #faf7f0;
+    --muted: #8a8a7a;
+    --border: #d8d0c0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.5;
+  }
+
+  header {
+    padding: 2.5rem 3rem 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--sage);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span {
+    color: var(--gold);
+  }
+
+  .tagline {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .ad-banner {
+    background: var(--cream);
+    border: 1px dashed var(--border);
+    text-align: center;
+    padding: 1rem;
+    color: var(--muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 1.5rem 3rem 0;
+    border-radius: 2px;
+  }
+
+  .ad-banner-label { margin-bottom: 0.3rem; }
+  .ad-banner-box {
+    background: var(--border);
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    color: var(--muted);
+    font-size: 0.7rem;
+  }
+
+  main {
+    max-width: 860px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .panel {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .panel-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .panel-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .field {
+    margin-bottom: 1.2rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.65rem 0.85rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  input:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.12);
+  }
+
+  .input-prefix {
+    position: relative;
+  }
+
+  .input-prefix span {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+
+  .input-prefix input { padding-left: 1.6rem; }
+
+  .input-suffix {
+    position: relative;
+  }
+
+  .input-suffix span {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 0.75rem;
+    pointer-events: none;
+  }
+
+  .input-suffix input { padding-right: 3rem; }
+
+  button {
+    width: 100%;
+    background: var(--sage);
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 0.85rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 0.5rem;
+  }
+
+  button:hover { background: #3d6849; }
+  button:active { transform: scale(0.99); }
+
+  /* Results panel */
+  .results {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+
+  .results.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .goal-name-display {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--sage);
+    margin-bottom: 0.2rem;
+    font-style: italic;
+  }
+
+  .goal-amount-display {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Progress ring */
+  .progress-ring-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ring-svg { flex-shrink: 0; }
+
+  .ring-track {
+    fill: none;
+    stroke: var(--sage-pale);
+    stroke-width: 8;
+  }
+
+  .ring-fill {
+    fill: none;
+    stroke: var(--sage);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .ring-label {
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-family: 'DM Mono', monospace;
+    fill: var(--ink);
+  }
+
+  .ring-pct {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .ring-sub {
+    font-size: 7px;
+    fill: var(--muted);
+  }
+
+  .ring-info { flex: 1; }
+
+  .ring-info .stat {
+    margin-bottom: 0.6rem;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .stat-value.highlight {
+    color: var(--gold);
+    font-size: 1.3rem;
+  }
+
+  /* Timeline bar */
+  .timeline-section {
+    border-top: 1px solid var(--border);
+    padding-top: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  .timeline-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .milestone {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .milestone-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .milestone-dot.done { background: var(--sage); }
+  .milestone-dot.future { background: var(--border); border: 1px solid var(--sage-light); }
+
+  .milestone-bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .milestone-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sage-light), var(--sage));
+    border-radius: 2px;
+    transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .milestone-text {
+    font-size: 0.7rem;
+    color: var(--ink);
+    white-space: nowrap;
+    min-width: 90px;
+    text-align: right;
+  }
+
+  .milestone-date {
+    font-size: 0.65rem;
+    color: var(--muted);
+    min-width: 60px;
+  }
+
+  /* Tip box */
+  .tip-box {
+    background: var(--sage-pale);
+    border-left: 3px solid var(--sage);
+    padding: 0.8rem 1rem;
+    margin-top: 1.2rem;
+    border-radius: 0 2px 2px 0;
+    font-size: 0.75rem;
+    color: var(--sage);
+    line-height: 1.5;
+  }
+
+  .tip-box strong { color: var(--ink); }
+
+  /* Side ad */
+  .side-ad {
+    background: var(--cream);
+    border: 1px dashed var(--border);
+    padding: 0.8rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    margin-top: 1.5rem;
+  }
+
+  .side-ad-box {
+    background: var(--border);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    margin-top: 0.4rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    main { grid-template-columns: 1fr; }
+    header { padding: 1.5rem; flex-direction: column; gap: 0.3rem; }
+    .ad-banner { margin: 1rem 1.5rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Save<span>Path</span></div>
+  <div class="tagline">Savings Goal Tracker</div>
+</header>
+
+<!-- Top AdSense Banner -->
+<div class="ad-banner">
+  <div class="ad-banner-label">Advertisement</div>
+  <div class="ad-banner-box">AdSense 728×90 Leaderboard</div>
+</div>
+
+<main>
+  <!-- Input Panel -->
+  <div class="panel">
+    <div class="panel-title">Your Goal</div>
+
+    <div class="field">
+      <label>Goal Name</label>
+      <input type="text" id="goalName" placeholder="e.g. Emergency Fund" />
+    </div>
+
+    <div class="field">
+      <label>Target Amount</label>
+      <div class="input-prefix">
+        <span>$</span>
+        <input type="number" id="targetAmount" placeholder="5,000" min="1" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Current Savings</label>
+      <div class="input-prefix">
+        <span>$</span>
+        <input type="number" id="currentSavings" placeholder="500" min="0" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Monthly Contribution</label>
+      <div class="input-prefix">
+        <span>$</span>
+        <input type="number" id="monthly" placeholder="200" min="1" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Annual Interest Rate (optional)</label>
+      <div class="input-suffix">
+        <span>% APY</span>
+        <input type="number" id="interest" placeholder="4.5" min="0" step="0.01" />
+      </div>
+    </div>
+
+    <button onclick="calculate()">Calculate My Timeline →</button>
+
+    <!-- Side AdSense -->
+    <div class="side-ad">
+      <div>Advertisement</div>
+      <div class="side-ad-box">AdSense 300×250</div>
+    </div>
+  </div>
+
+  <!-- Results Panel -->
+  <div class="panel results" id="results">
+    <div class="goal-name-display" id="dispName">Emergency Fund</div>
+    <div class="goal-amount-display" id="dispSub">$500 saved of $5,000 goal</div>
+
+    <div class="progress-ring-wrap">
+      <svg class="ring-svg" width="100" height="100" viewBox="0 0 100 100">
+        <circle class="ring-track" cx="50" cy="50" r="40"/>
+        <circle class="ring-fill" id="ringFill" cx="50" cy="50" r="40"
+          stroke-dasharray="251.2"
+          stroke-dashoffset="251.2"/>
+        <text class="ring-label" x="50" y="46">
+          <tspan class="ring-pct" id="ringPct" x="50" dy="0">0%</tspan>
+        </text>
+        <text class="ring-label" x="50" y="62">
+          <tspan class="ring-sub">complete</tspan>
+        </text>
+      </svg>
+
+      <div class="ring-info">
+        <div class="stat">
+          <div class="stat-label">Remaining</div>
+          <div class="stat-value" id="dispRemaining">$4,500</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">You'll reach your goal in</div>
+          <div class="stat-value highlight" id="dispMonths">23 months</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Target Date</div>
+          <div class="stat-value" id="dispDate">Apr 2027</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-section">
+      <div class="timeline-label">Milestone Timeline</div>
+      <div class="milestones" id="milestones"></div>
+    </div>
+
+    <div class="tip-box" id="tipBox"></div>
+  </div>
+</main>
+
+<footer>
+  SavePath © 2026 &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp; Results are estimates
+</footer>
+
+<script>
+  function fmt(n) {
+    return '$' + Number(n.toFixed(0)).toLocaleString();
+  }
+
+  function calculate() {
+    const name = document.getElementById('goalName').value.trim() || 'My Goal';
+    const target = parseFloat(document.getElementById('targetAmount').value);
+    const current = parseFloat(document.getElementById('currentSavings').value) || 0;
+    const monthly = parseFloat(document.getElementById('monthly').value);
+    const rate = parseFloat(document.getElementById('interest').value) || 0;
+
+    if (!target || !monthly || target <= 0 || monthly <= 0) {
+      alert('Please enter a target amount and monthly contribution.');
+      return;
+    }
+
+    const remaining = Math.max(target - current, 0);
+    const pct = Math.min((current / target) * 100, 100);
+    const monthlyRate = rate / 100 / 12;
+
+    // Calculate months with compound interest
+    let months = 0;
+    let balance = current;
+    if (remaining <= 0) {
+      months = 0;
+    } else if (monthlyRate === 0) {
+      months = Math.ceil(remaining / monthly);
+    } else {
+      while (balance < target && months < 600) {
+        balance = balance * (1 + monthlyRate) + monthly;
+        months++;
+      }
+    }
+
+    // Target date
+    const now = new Date();
+    const targetDate = new Date(now.getFullYear(), now.getMonth() + months, 1);
+    const dateStr = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+    // Update display
+    document.getElementById('dispName').textContent = name;
+    document.getElementById('dispSub').textContent =
+      fmt(current) + ' saved of ' + fmt(target) + ' goal';
+    document.getElementById('dispRemaining').textContent = fmt(remaining);
+    document.getElementById('dispMonths').textContent =
+      months === 0 ? "You're already there! 🎉" :
+      months === 1 ? '1 month' : months + ' months';
+    document.getElementById('dispDate').textContent = months === 0 ? '—' : dateStr;
+    document.getElementById('ringPct').textContent = Math.round(pct) + '%';
+
+    // Animate ring
+    const circumference = 251.2;
+    const offset = circumference - (pct / 100) * circumference;
+    setTimeout(() => {
+      document.getElementById('ringFill').style.strokeDashoffset = offset;
+    }, 100);
+
+    // Milestones: 25%, 50%, 75%, 100%
+    const milestoneData = [25, 50, 75, 100];
+    const milestonesEl = document.getElementById('milestones');
+    milestonesEl.innerHTML = '';
+
+    milestoneData.forEach((m, i) => {
+      const mAmount = target * m / 100;
+      const mRemaining = Math.max(mAmount - current, 0);
+      let mMonths = 0;
+      if (mRemaining <= 0) {
+        mMonths = 0;
+      } else if (monthlyRate === 0) {
+        mMonths = Math.ceil(mRemaining / monthly);
+      } else {
+        let b = current;
+        while (b < mAmount && mMonths < 600) {
+          b = b * (1 + monthlyRate) + monthly;
+          mMonths++;
+        }
+      }
+
+      const mDate = new Date(now.getFullYear(), now.getMonth() + mMonths, 1);
+      const mDateStr = mMonths === 0 ? 'Done ✓' :
+        mDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+      const done = current >= mAmount;
+      const barPct = done ? 100 : Math.min((current / mAmount) * 100, 100);
+
+      const el = document.createElement('div');
+      el.className = 'milestone';
+      el.style.animationDelay = (i * 0.08) + 's';
+      el.innerHTML = `
+        <div class="milestone-dot ${done ? 'done' : 'future'}"></div>
+        <div class="milestone-bar-wrap">
+          <div class="milestone-bar" style="width:0%" data-target="${barPct}"></div>
+        </div>
+        <div class="milestone-date">${mDateStr}</div>
+        <div class="milestone-text">${m}% · ${fmt(mAmount)}</div>
+      `;
+      milestonesEl.appendChild(el);
+    });
+
+    // Animate milestone bars
+    setTimeout(() => {
+      document.querySelectorAll('.milestone-bar').forEach(bar => {
+        bar.style.width = bar.dataset.target + '%';
+      });
+    }, 200);
+
+    // Tip
+    let tip = '';
+    if (months === 0) {
+      tip = '🎉 <strong>Congratulations!</strong> You\'ve already reached your goal!';
+    } else if (rate === 0) {
+      tip = '💡 <strong>Pro tip:</strong> Put your savings in a high-yield savings account (4–5% APY) to reach your goal faster. Enter an interest rate above to see the difference.';
+    } else if (months > 24) {
+      tip = `💡 <strong>Boost tip:</strong> Increasing your monthly contribution by just $50 could shave several months off your timeline.`;
+    } else {
+      tip = `✅ <strong>Great pace!</strong> At ${fmt(monthly)}/month you're on track. Stay consistent and you'll hit ${fmt(target)} by ${dateStr}.`;
+    }
+    document.getElementById('tipBox').innerHTML = tip;
+
+    // Show results
+    const resultsEl = document.getElementById('results');
+    resultsEl.classList.add('visible');
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Allow Enter key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') calculate();
+  });
+
+  // Demo on load
+  window.addEventListener('load', () => {
+    document.getElementById('goalName').value = 'Emergency Fund';
+    document.getElementById('targetAmount').value = '5000';
+    document.getElementById('currentSavings').value = '750';
+    document.getElementById('monthly').value = '250';
+    document.getElementById('interest').value = '4.5';
+    setTimeout(calculate, 600);
+  });
+</script>
+</body>
+</html>

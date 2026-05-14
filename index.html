@@ -49,13 +49,19 @@
   }
 
   nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 0.8rem 3rem;
     border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
     background: var(--cream);
     display: flex;
     gap: 1.5rem;
     font-size: 0.72rem;
+    z-index: 99;
+    justify-content: center;
+    box-shadow: 0 -2px 12px rgba(15,26,15,0.06);
   }
 
   nav a {
@@ -67,6 +73,18 @@
   }
 
   nav a:hover { color: var(--gold); }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  body { padding-bottom: 4rem; }
 
   .logo {
     font-family: 'DM Serif Display', serif;
@@ -511,12 +529,6 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- Top AdSense Banner -->
-<div class="ad-banner">
-  <div>Advertisement</div>
-  <div class="ad-banner-box">AdSense 728×90 Leaderboard</div>
-</div>
-
 <main>
   <!-- Input Panel -->
   <div class="panel">
@@ -620,6 +632,12 @@
   </div>
 </main>
 
+<!-- Bottom AdSense Leaderboard — shown after user gets value from the tool -->
+<div style="text-align:center;padding:1.5rem 2rem;max-width:860px;margin:0 auto;">
+  <div style="font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Advertisement</div>
+  <div style="background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;color:var(--muted);font-size:0.7rem;font-family:'DM Mono',monospace;">AdSense 728×90 Leaderboard</div>
+</div>
+
 <!-- Email Modal -->
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
@@ -642,10 +660,6 @@
     </p>
   </div>
 </div>
-
-<footer>
-  Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp; Results are estimates
-</footer>
 
 <script>
   let lastResults = {};
@@ -844,5 +858,10 @@ Results are estimates only and not financial advice.`
     setTimeout(calculate, 600);
   });
 </script>
+
+<footer>
+  Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp; Results are estimates
+</footer>
+
 </body>
 </html>

@@ -1,9 +1,13 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sharpline — Savings Goal Tracker</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -18,9 +22,9 @@
     --muted: #8a8a7a;
     --border: #d8d0c0;
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   body {
     background: var(--paper);
     color: var(--ink);
@@ -29,7 +33,7 @@
     position: relative;
     overflow-x: hidden;
   }
-
+ 
   body::before {
     content: '';
     position: fixed;
@@ -39,7 +43,7 @@
     z-index: 100;
     opacity: 0.5;
   }
-
+ 
   header {
     padding: 2.5rem 3rem 1.5rem;
     display: flex;
@@ -47,7 +51,7 @@
     gap: 1rem;
     border-bottom: none;
   }
-
+ 
   nav {
     position: fixed;
     bottom: 0;
@@ -63,7 +67,7 @@
     justify-content: center;
     box-shadow: 0 -2px 12px rgba(15,26,15,0.06);
   }
-
+ 
   nav a {
     color: var(--sage);
     text-decoration: none;
@@ -71,9 +75,9 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
+ 
   nav a:hover { color: var(--gold); }
-
+ 
   footer {
     text-align: center;
     padding: 1.5rem 2rem;
@@ -83,25 +87,25 @@
     border-top: 1px solid var(--border);
     margin-top: 2rem;
   }
-
+ 
   body { padding-bottom: 4rem; }
-
+ 
   .logo {
     font-family: 'DM Serif Display', serif;
     font-size: 1.8rem;
     color: var(--sage);
     letter-spacing: -0.02em;
   }
-
+ 
   .logo span { color: var(--gold); }
-
+ 
   .tagline {
     font-size: 0.7rem;
     color: var(--muted);
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
-
+ 
   .ad-banner {
     background: var(--cream);
     border: 1px dashed var(--border);
@@ -114,7 +118,7 @@
     margin: 1.5rem 3rem 0;
     border-radius: 2px;
   }
-
+ 
   .ad-banner-box {
     background: var(--border);
     height: 90px;
@@ -126,7 +130,7 @@
     font-size: 0.7rem;
     margin-top: 0.3rem;
   }
-
+ 
   main {
     max-width: 860px;
     margin: 2.5rem auto;
@@ -136,14 +140,14 @@
     gap: 2rem;
     align-items: start;
   }
-
+ 
   .panel {
     background: var(--cream);
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 2rem;
   }
-
+ 
   .panel-title {
     font-family: 'DM Serif Display', serif;
     font-size: 1.3rem;
@@ -153,16 +157,16 @@
     align-items: center;
     gap: 0.5rem;
   }
-
+ 
   .panel-title::after {
     content: '';
     flex: 1;
     height: 1px;
     background: var(--border);
   }
-
+ 
   .field { margin-bottom: 1.2rem; }
-
+ 
   label {
     display: block;
     font-size: 0.65rem;
@@ -171,7 +175,7 @@
     color: var(--muted);
     margin-bottom: 0.4rem;
   }
-
+ 
   input[type="text"],
   input[type="number"],
   input[type="email"] {
@@ -186,12 +190,12 @@
     transition: border-color 0.2s, box-shadow 0.2s;
     outline: none;
   }
-
+ 
   input:focus {
     border-color: var(--sage);
     box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.12);
   }
-
+ 
   .input-prefix { position: relative; }
   .input-prefix span {
     position: absolute;
@@ -203,7 +207,7 @@
     pointer-events: none;
   }
   .input-prefix input { padding-left: 1.6rem; }
-
+ 
   .input-suffix { position: relative; }
   .input-suffix span {
     position: absolute;
@@ -215,7 +219,7 @@
     pointer-events: none;
   }
   .input-suffix input { padding-right: 3rem; }
-
+ 
   button {
     width: 100%;
     background: var(--sage);
@@ -231,28 +235,28 @@
     transition: background 0.2s, transform 0.1s;
     margin-top: 0.5rem;
   }
-
+ 
   button:hover { background: #3d6849; }
   button:active { transform: scale(0.99); }
-
+ 
   .btn-secondary {
     background: transparent;
     color: var(--sage);
     border: 1px solid var(--sage);
     margin-top: 0.6rem;
   }
-
+ 
   .btn-secondary:hover {
     background: var(--sage-pale);
   }
-
+ 
   .btn-gold {
     background: var(--gold);
     margin-top: 0.6rem;
   }
-
+ 
   .btn-gold:hover { background: #b07820; }
-
+ 
   /* Share buttons row */
   .share-row {
     display: grid;
@@ -262,7 +266,7 @@
     padding-top: 1.2rem;
     border-top: 1px solid var(--border);
   }
-
+ 
   .share-row button {
     margin-top: 0;
     font-size: 0.72rem;
@@ -272,7 +276,7 @@
     justify-content: center;
     gap: 0.4rem;
   }
-
+ 
   /* Email modal */
   .modal-overlay {
     display: none;
@@ -283,9 +287,9 @@
     align-items: center;
     justify-content: center;
   }
-
+ 
   .modal-overlay.open { display: flex; }
-
+ 
   .modal {
     background: var(--cream);
     border: 1px solid var(--border);
@@ -295,14 +299,14 @@
     max-width: 400px;
     margin: 1rem;
   }
-
+ 
   .modal-title {
     font-family: 'DM Serif Display', serif;
     font-size: 1.2rem;
     margin-bottom: 1.2rem;
     color: var(--sage);
   }
-
+ 
   .modal-close {
     float: right;
     background: none;
@@ -315,18 +319,18 @@
     margin: 0;
     line-height: 1;
   }
-
+ 
   .modal-close:hover { background: none; color: var(--ink); transform: none; }
-
+ 
   /* Results */
   .results {
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.4s, transform 0.4s;
   }
-
+ 
   .results.visible { opacity: 1; transform: translateY(0); }
-
+ 
   .goal-name-display {
     font-family: 'DM Serif Display', serif;
     font-size: 1.6rem;
@@ -334,29 +338,29 @@
     margin-bottom: 0.2rem;
     font-style: italic;
   }
-
+ 
   .goal-amount-display {
     font-size: 0.75rem;
     color: var(--muted);
     letter-spacing: 0.08em;
     margin-bottom: 1.5rem;
   }
-
+ 
   .progress-ring-wrap {
     display: flex;
     align-items: center;
     gap: 1.2rem;
     margin-bottom: 1.5rem;
   }
-
+ 
   .ring-svg { flex-shrink: 0; }
-
+ 
   .ring-track {
     fill: none;
     stroke: var(--sage-pale);
     stroke-width: 8;
   }
-
+ 
   .ring-fill {
     fill: none;
     stroke: var(--sage);
@@ -366,37 +370,37 @@
     transform-origin: 50% 50%;
     transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1);
   }
-
+ 
   .ring-label {
     text-anchor: middle;
     dominant-baseline: middle;
     font-family: 'DM Mono', monospace;
     fill: var(--ink);
   }
-
+ 
   .ring-pct { font-size: 18px; font-weight: 500; }
   .ring-sub { font-size: 7px; fill: var(--muted); }
-
+ 
   .ring-info { flex: 1; }
-
+ 
   .ring-info .stat { margin-bottom: 0.6rem; }
-
+ 
   .stat-label {
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
   }
-
+ 
   .stat-value { font-size: 1.1rem; font-weight: 500; color: var(--ink); }
   .stat-value.highlight { color: var(--gold); font-size: 1.3rem; }
-
+ 
   .timeline-section {
     border-top: 1px solid var(--border);
     padding-top: 1.2rem;
     margin-top: 0.5rem;
   }
-
+ 
   .timeline-label {
     font-size: 0.6rem;
     letter-spacing: 0.1em;
@@ -404,25 +408,25 @@
     color: var(--muted);
     margin-bottom: 0.8rem;
   }
-
+ 
   .milestones { display: flex; flex-direction: column; gap: 0.5rem; }
-
+ 
   .milestone {
     display: flex;
     align-items: center;
     gap: 0.7rem;
     animation: fadeUp 0.4s ease both;
   }
-
+ 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+ 
   .milestone-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .milestone-dot.done { background: var(--sage); }
   .milestone-dot.future { background: var(--border); border: 1px solid var(--sage-light); }
-
+ 
   .milestone-bar-wrap {
     flex: 1;
     height: 4px;
@@ -430,14 +434,14 @@
     border-radius: 2px;
     overflow: hidden;
   }
-
+ 
   .milestone-bar {
     height: 100%;
     background: linear-gradient(90deg, var(--sage-light), var(--sage));
     border-radius: 2px;
     transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
   }
-
+ 
   .milestone-text {
     font-size: 0.7rem;
     color: var(--ink);
@@ -445,9 +449,9 @@
     min-width: 90px;
     text-align: right;
   }
-
+ 
   .milestone-date { font-size: 0.65rem; color: var(--muted); min-width: 60px; }
-
+ 
   .tip-box {
     background: var(--sage-pale);
     border-left: 3px solid var(--sage);
@@ -458,9 +462,9 @@
     color: var(--sage);
     line-height: 1.5;
   }
-
+ 
   .tip-box strong { color: var(--ink); }
-
+ 
   .side-ad {
     background: var(--cream);
     border: 1px dashed var(--border);
@@ -473,7 +477,7 @@
     border-radius: 2px;
     margin-top: 1.5rem;
   }
-
+ 
   .side-ad-box {
     background: var(--border);
     height: 250px;
@@ -485,7 +489,7 @@
     color: var(--muted);
     font-size: 0.7rem;
   }
-
+ 
   footer {
     text-align: center;
     padding: 2rem;
@@ -495,7 +499,7 @@
     border-top: 1px solid var(--border);
     margin-top: 2rem;
   }
-
+ 
   /* Print styles */
   @media print {
     body::before, .ad-banner, .side-ad, .share-row, footer { display: none !important; }
@@ -506,7 +510,7 @@
     button { display: none; }
     input { border: none; background: transparent; }
   }
-
+ 
   @media (max-width: 640px) {
     main { grid-template-columns: 1fr; }
     header { padding: 1.5rem; flex-direction: column; gap: 0.3rem; }
@@ -516,29 +520,29 @@
 </style>
 </head>
 <body>
-
+ 
 <header>
   <div class="logo">Sharpline<span>.</span></div>
   <div class="tagline">Savings Goal Tracker | vaultgoal.com</div>
 </header>
-
+ 
 <nav>
   <a href="index.html">🏠 Calculator</a>
   <a href="about.html">About</a>
   <a href="privacy.html">Privacy Policy</a>
   <a href="contact.html">Contact</a>
 </nav>
-
+ 
 <main>
   <!-- Input Panel -->
   <div class="panel">
     <div class="panel-title">Your Goal</div>
-
+ 
     <div class="field">
       <label>Goal Name</label>
       <input type="text" id="goalName" placeholder="e.g. Emergency Fund" />
     </div>
-
+ 
     <div class="field">
       <label>Target Amount</label>
       <div class="input-prefix">
@@ -546,7 +550,7 @@
         <input type="number" id="targetAmount" placeholder="5,000" min="1" />
       </div>
     </div>
-
+ 
     <div class="field">
       <label>Current Savings</label>
       <div class="input-prefix">
@@ -554,7 +558,7 @@
         <input type="number" id="currentSavings" placeholder="500" min="0" />
       </div>
     </div>
-
+ 
     <div class="field">
       <label>Monthly Contribution</label>
       <div class="input-prefix">
@@ -562,7 +566,7 @@
         <input type="number" id="monthly" placeholder="200" min="1" />
       </div>
     </div>
-
+ 
     <div class="field">
       <label>Annual Interest Rate (optional)</label>
       <div class="input-suffix">
@@ -570,24 +574,24 @@
         <input type="number" id="interest" placeholder="4.5" min="0" step="0.01" />
       </div>
     </div>
-
+ 
     <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.8rem;letter-spacing:0.04em;line-height:1.5;">
       ✏️ Edit the fields above with your details, then tap Calculate to see your personal savings timeline.
     </p>
-
+ 
     <button onclick="calculate()">Calculate My Timeline →</button>
-
+ 
     <div class="side-ad">
       <div>Advertisement</div>
       <div class="side-ad-box">AdSense 300×250</div>
     </div>
   </div>
-
+ 
   <!-- Results Panel -->
   <div class="panel results" id="results">
     <div class="goal-name-display" id="dispName">Emergency Fund</div>
     <div class="goal-amount-display" id="dispSub">$500 saved of $5,000 goal</div>
-
+ 
     <div class="progress-ring-wrap">
       <svg class="ring-svg" width="100" height="100" viewBox="0 0 100 100">
         <circle class="ring-track" cx="50" cy="50" r="40"/>
@@ -600,7 +604,7 @@
           <tspan class="ring-sub">complete</tspan>
         </text>
       </svg>
-
+ 
       <div class="ring-info">
         <div class="stat">
           <div class="stat-label">Remaining</div>
@@ -616,14 +620,14 @@
         </div>
       </div>
     </div>
-
+ 
     <div class="timeline-section">
       <div class="timeline-label">Milestone Timeline</div>
       <div class="milestones" id="milestones"></div>
     </div>
-
+ 
     <div class="tip-box" id="tipBox"></div>
-
+ 
     <!-- Share Row -->
     <div class="share-row" id="shareRow" style="display:none;">
       <button class="btn-secondary" onclick="printResults()">🖨️ Print Results</button>
@@ -631,13 +635,13 @@
     </div>
   </div>
 </main>
-
+ 
 <!-- Bottom AdSense Leaderboard — shown after user gets value from the tool -->
 <div style="text-align:center;padding:1.5rem 2rem;max-width:860px;margin:0 auto;">
   <div style="font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Advertisement</div>
   <div style="background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;color:var(--muted);font-size:0.7rem;font-family:'DM Mono',monospace;">AdSense 728×90 Leaderboard</div>
 </div>
-
+ 
 <!-- Email Modal -->
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
@@ -660,30 +664,30 @@
     </p>
   </div>
 </div>
-
+ 
 <script>
   let lastResults = {};
-
+ 
   function fmt(n) {
     return '$' + Number(n.toFixed(0)).toLocaleString();
   }
-
+ 
   function calculate() {
     const name = document.getElementById('goalName').value.trim() || 'My Goal';
     const target = parseFloat(document.getElementById('targetAmount').value);
     const current = parseFloat(document.getElementById('currentSavings').value) || 0;
     const monthly = parseFloat(document.getElementById('monthly').value);
     const rate = parseFloat(document.getElementById('interest').value) || 0;
-
+ 
     if (!target || !monthly || target <= 0 || monthly <= 0) {
       alert('Please enter a target amount and monthly contribution.');
       return;
     }
-
+ 
     const remaining = Math.max(target - current, 0);
     const pct = Math.min((current / target) * 100, 100);
     const monthlyRate = rate / 100 / 12;
-
+ 
     let months = 0;
     let balance = current;
     if (remaining <= 0) {
@@ -696,28 +700,28 @@
         months++;
       }
     }
-
+ 
     const now = new Date();
     const targetDate = new Date(now.getFullYear(), now.getMonth() + months, 1);
     const dateStr = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
     const monthsLabel = months === 0 ? "You're already there! 🎉" : months === 1 ? '1 month' : months + ' months';
-
+ 
     // Store for email
     lastResults = { name, target, current, monthly, rate, months, monthsLabel, dateStr, pct: Math.round(pct), remaining };
-
+ 
     document.getElementById('dispName').textContent = name;
     document.getElementById('dispSub').textContent = fmt(current) + ' saved of ' + fmt(target) + ' goal';
     document.getElementById('dispRemaining').textContent = fmt(remaining);
     document.getElementById('dispMonths').textContent = monthsLabel;
     document.getElementById('dispDate').textContent = months === 0 ? '—' : dateStr;
     document.getElementById('ringPct').textContent = Math.round(pct) + '%';
-
+ 
     const circumference = 251.2;
     const offset = circumference - (pct / 100) * circumference;
     setTimeout(() => {
       document.getElementById('ringFill').style.strokeDashoffset = offset;
     }, 100);
-
+ 
     // Milestones
     const milestonesEl = document.getElementById('milestones');
     milestonesEl.innerHTML = '';
@@ -740,7 +744,7 @@
       const mDateStr = mMonths === 0 ? 'Done ✓' : mDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
       const done = current >= mAmount;
       const barPct = done ? 100 : Math.min((current / mAmount) * 100, 100);
-
+ 
       const el = document.createElement('div');
       el.className = 'milestone';
       el.style.animationDelay = (i * 0.08) + 's';
@@ -754,13 +758,13 @@
       `;
       milestonesEl.appendChild(el);
     });
-
+ 
     setTimeout(() => {
       document.querySelectorAll('.milestone-bar').forEach(bar => {
         bar.style.width = bar.dataset.target + '%';
       });
     }, 200);
-
+ 
     // Tip
     let tip = '';
     if (months === 0) {
@@ -773,57 +777,57 @@
       tip = `✅ <strong>Great pace!</strong> At ${fmt(monthly)}/month you're on track to hit ${fmt(target)} by ${dateStr}.`;
     }
     document.getElementById('tipBox').innerHTML = tip;
-
+ 
     // Show results and share buttons
     const resultsEl = document.getElementById('results');
     resultsEl.classList.add('visible');
     document.getElementById('shareRow').style.display = 'grid';
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
-
+ 
   function printResults() {
     window.print();
   }
-
+ 
   function openEmailModal() {
     document.getElementById('emailModal').classList.add('open');
   }
-
+ 
   function closeEmailModal() {
     document.getElementById('emailModal').classList.remove('open');
   }
-
+ 
   function sendEmail() {
     const to = document.getElementById('emailTo').value.trim();
     const from = document.getElementById('emailFrom').value.trim();
     const r = lastResults;
-
+ 
     if (!to) {
       alert('Please enter a recipient email address.');
       return;
     }
-
+ 
     const greeting = from ? `Hi, ${from} has shared their savings goal results with you.` : 'Here are my savings goal results from VaultGoal.com:';
-
+ 
     const subject = encodeURIComponent(`Savings Goal: ${r.name} — VaultGoal.com`);
     const body = encodeURIComponent(
 `${greeting}
-
+ 
 ━━━━━━━━━━━━━━━━━━━━━
 SAVINGS GOAL: ${r.name.toUpperCase()}
 ━━━━━━━━━━━━━━━━━━━━━
-
+ 
 🎯 Target Amount:      $${r.target.toLocaleString()}
 💰 Current Savings:    $${r.current.toLocaleString()}
 📉 Remaining:          $${Math.round(r.remaining).toLocaleString()}
 📈 Progress:           ${r.pct}% complete
-
+ 
 📅 Monthly Contribution: $${r.monthly.toLocaleString()}
 ${r.rate ? `📊 Interest Rate: ${r.rate}% APY` : ''}
-
+ 
 ⏱ Time to Goal:  ${r.monthsLabel}
 🗓 Target Date:   ${r.dateStr}
-
+ 
 ━━━━━━━━━━━━━━━━━━━━━
 MILESTONES
 ━━━━━━━━━━━━━━━━━━━━━
@@ -831,24 +835,24 @@ MILESTONES
 50%  →  $${Math.round(r.target * 0.50).toLocaleString()}
 75%  →  $${Math.round(r.target * 0.75).toLocaleString()}
 100% →  $${Math.round(r.target).toLocaleString()}
-
+ 
 ━━━━━━━━━━━━━━━━━━━━━
 Try the free Savings Goal Tracker at:
 https://vaultgoal.com
-
+ 
 Powered by Sharpline · vaultgoal.com
 Results are estimates only and not financial advice.`
     );
-
+ 
     window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     closeEmailModal();
   }
-
+ 
   document.addEventListener('keydown', e => {
     if (e.key === 'Enter') calculate();
     if (e.key === 'Escape') closeEmailModal();
   });
-
+ 
   window.addEventListener('load', () => {
     document.getElementById('goalName').value = 'Emergency Fund';
     document.getElementById('targetAmount').value = '5000';
@@ -858,10 +862,10 @@ Results are estimates only and not financial advice.`
     setTimeout(calculate, 600);
   });
 </script>
-
+ 
 <footer>
   Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp; Results are estimates
 </footer>
-
+ 
 </body>
 </html>

@@ -1,9 +1,13 @@
+Contact · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Sharpline | VaultGoal</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -144,22 +148,22 @@
 </style>
 </head>
 <body>
-
+ 
 <header>
   <div class="logo">Sharpline<span>.</span></div>
   <div class="tagline">Savings Goal Tracker | vaultgoal.com</div>
 </header>
-
+ 
 <nav>
   <a href="index.html">← Back to Calculator</a> &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
   <a href="privacy.html">Privacy Policy</a>
 </nav>
-
+ 
 <div class="container">
   <h1>Contact Us</h1>
   <p class="intro">Have a question, suggestion, or found a bug? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
-
+ 
   <div class="panel">
     <div class="field">
       <label>Your Name</label>
@@ -184,44 +188,44 @@
       <label>Message</label>
       <textarea id="contactMessage" placeholder="Tell us how we can help..."></textarea>
     </div>
-
+ 
     <button onclick="submitContact()">Send Message →</button>
-
+ 
     <div class="success" id="successMsg">
       ✅ <strong>Thank you!</strong> Your message has been sent. We'll be in touch shortly.
     </div>
-
+ 
     <p class="note">
       VaultGoal is a Sharpline utility tool. We typically respond within 2–3 business days.<br>
       For urgent matters please include as much detail as possible.
     </p>
   </div>
 </div>
-
+ 
 <footer>
   Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp;
   <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
   <a href="contact.html">Contact</a>
 </footer>
-
+ 
 <script>
   function submitContact() {
     const name = document.getElementById('contactName').value.trim();
     const email = document.getElementById('contactEmail').value.trim();
     const subject = document.getElementById('contactSubject').value;
     const message = document.getElementById('contactMessage').value.trim();
-
+ 
     if (!name || !email || !subject || !message) {
       alert('Please fill in all fields before sending.');
       return;
     }
-
+ 
     if (!email.includes('@')) {
       alert('Please enter a valid email address.');
       return;
     }
-
+ 
     // Opens default mail client with pre-filled message
     const mailSubject = encodeURIComponent('VaultGoal Contact: ' + subject);
     const mailBody = encodeURIComponent(
@@ -231,9 +235,9 @@
       'Message:\n' + message + '\n\n' +
       '---\nSent from vaultgoal.com contact form'
     );
-
+ 
     window.location.href = 'mailto:jetj69@hotmail.com?subject=' + mailSubject + '&body=' + mailBody;
-
+ 
     document.getElementById('successMsg').style.display = 'block';
     document.getElementById('contactName').value = '';
     document.getElementById('contactEmail').value = '';
@@ -241,6 +245,6 @@
     document.getElementById('contactMessage').value = '';
   }
 </script>
-
+ 
 </body>
 </html>

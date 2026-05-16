@@ -1,13 +1,92 @@
-Index · HTML
-Copy
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sharpline — Savings Goal Tracker</title>
+
+<!-- ── SEO ── -->
+<meta name="google-adsense-account" content="ca-pub-8775883855490271">
+<meta name="description" content="Free savings goal tracker and calculator by Sharpline. Set a savings target, track your progress, and see exactly when you'll reach your goal." />
+<meta name="keywords" content="savings goal tracker, savings calculator, savings goal, how long to save, savings timeline, emergency fund calculator, free savings tool, personal finance" />
+<meta name="author" content="Sharpline" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://vaultgoal.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vaultgoal.com/" />
+<meta property="og:title" content="Free Savings Goal Tracker & Calculator | Sharpline — VaultGoal" />
+<meta property="og:description" content="Set your savings goal, enter your monthly contribution, and see exactly when you'll reach it. Free, instant, no sign-up." />
+<meta property="og:site_name" content="Sharpline — VaultGoal.com" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Free Savings Goal Tracker | Sharpline — VaultGoal" />
+<meta name="twitter:description" content="Track your savings goal and see exactly when you'll reach it. Free, no sign-up." />
+
+<title>Free Savings Goal Tracker & Calculator — See When You'll Reach Your Goal | Sharpline</title>
+
+<!-- Schema: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Savings Goal Tracker",
+  "url": "https://vaultgoal.com/",
+  "description": "A free savings goal calculator that shows your milestone timeline and exactly when you will reach your savings target.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sharpline",
+    "url": "https://vaultgoal.com",
+    "sameAs": ["https://503020.ca"]
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the savings goal tracker work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your goal name, target amount, current savings, monthly contribution, and optional interest rate. The calculator shows your milestone timeline and the exact date you will reach your goal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the savings goal tracker free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the Sharpline Savings Goal Tracker at VaultGoal.com is completely free with no sign-up required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I use the savings goal tracker for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can use it to track any savings goal including emergency funds, down payments, vacations, retirement contributions, or any other financial target."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ── AdSense ── -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -117,18 +196,6 @@ Copy
     text-transform: uppercase;
     margin: 1.5rem 3rem 0;
     border-radius: 2px;
-  }
- 
-  .ad-banner-box {
-    background: var(--border);
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    color: var(--muted);
-    font-size: 0.7rem;
-    margin-top: 0.3rem;
   }
  
   main {
@@ -246,9 +313,7 @@ Copy
     margin-top: 0.6rem;
   }
  
-  .btn-secondary:hover {
-    background: var(--sage-pale);
-  }
+  .btn-secondary:hover { background: var(--sage-pale); }
  
   .btn-gold {
     background: var(--gold);
@@ -257,7 +322,6 @@ Copy
  
   .btn-gold:hover { background: #b07820; }
  
-  /* Share buttons row */
   .share-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -277,7 +341,6 @@ Copy
     gap: 0.4rem;
   }
  
-  /* Email modal */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -322,7 +385,6 @@ Copy
  
   .modal-close:hover { background: none; color: var(--ink); transform: none; }
  
-  /* Results */
   .results {
     opacity: 0;
     transform: translateY(8px);
@@ -382,7 +444,6 @@ Copy
   .ring-sub { font-size: 7px; fill: var(--muted); }
  
   .ring-info { flex: 1; }
- 
   .ring-info .stat { margin-bottom: 0.6rem; }
  
   .stat-label {
@@ -477,32 +538,9 @@ Copy
     border-radius: 2px;
     margin-top: 1.5rem;
   }
- 
-  .side-ad-box {
-    background: var(--border);
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    margin-top: 0.4rem;
-    color: var(--muted);
-    font-size: 0.7rem;
-  }
- 
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    border-top: 1px solid var(--border);
-    margin-top: 2rem;
-  }
- 
-  /* Print styles */
+
   @media print {
-    body::before, .ad-banner, .side-ad, .share-row, footer { display: none !important; }
+    body::before, .ad-banner, .side-ad, .share-row, footer, nav { display: none !important; }
     header { border-bottom: 2px solid #4a7c59; padding: 1rem; }
     main { display: block; max-width: 100%; padding: 0; margin: 1rem; }
     .panel { border: 1px solid #ccc; margin-bottom: 1rem; box-shadow: none; }
@@ -525,6 +563,17 @@ Copy
   <div class="logo">Sharpline<span>.</span></div>
   <div class="tagline">Savings Goal Tracker | vaultgoal.com</div>
 </header>
+
+<!-- AdSense Top Banner -->
+<div class="ad-banner">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-8775883855490271"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
  
 <nav>
   <a href="index.html">🏠 Calculator</a>
@@ -580,10 +629,16 @@ Copy
     </p>
  
     <button onclick="calculate()">Calculate My Timeline →</button>
- 
+
+    <!-- AdSense Side Unit -->
     <div class="side-ad">
-      <div>Advertisement</div>
-      <div class="side-ad-box">AdSense 300×250</div>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-8775883855490271"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   </div>
  
@@ -628,7 +683,6 @@ Copy
  
     <div class="tip-box" id="tipBox"></div>
  
-    <!-- Share Row -->
     <div class="share-row" id="shareRow" style="display:none;">
       <button class="btn-secondary" onclick="printResults()">🖨️ Print Results</button>
       <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
@@ -636,12 +690,18 @@ Copy
   </div>
 </main>
  
-<!-- Bottom AdSense Leaderboard — shown after user gets value from the tool -->
+<!-- AdSense Bottom Leaderboard -->
 <div style="text-align:center;padding:1.5rem 2rem;max-width:860px;margin:0 auto;">
   <div style="font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Advertisement</div>
-  <div style="background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;color:var(--muted);font-size:0.7rem;font-family:'DM Mono',monospace;">AdSense 728×90 Leaderboard</div>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-8775883855490271"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
- 
+
 <!-- Email Modal -->
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
@@ -706,7 +766,6 @@ Copy
     const dateStr = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
     const monthsLabel = months === 0 ? "You're already there! 🎉" : months === 1 ? '1 month' : months + ' months';
  
-    // Store for email
     lastResults = { name, target, current, monthly, rate, months, monthsLabel, dateStr, pct: Math.round(pct), remaining };
  
     document.getElementById('dispName').textContent = name;
@@ -722,7 +781,6 @@ Copy
       document.getElementById('ringFill').style.strokeDashoffset = offset;
     }, 100);
  
-    // Milestones
     const milestonesEl = document.getElementById('milestones');
     milestonesEl.innerHTML = '';
     [25, 50, 75, 100].forEach((m, i) => {
@@ -765,7 +823,6 @@ Copy
       });
     }, 200);
  
-    // Tip
     let tip = '';
     if (months === 0) {
       tip = '🎉 <strong>Congratulations!</strong> You\'ve already reached your goal!';
@@ -778,16 +835,13 @@ Copy
     }
     document.getElementById('tipBox').innerHTML = tip;
  
-    // Show results and share buttons
     const resultsEl = document.getElementById('results');
     resultsEl.classList.add('visible');
     document.getElementById('shareRow').style.display = 'grid';
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
  
-  function printResults() {
-    window.print();
-  }
+  function printResults() { window.print(); }
  
   function openEmailModal() {
     document.getElementById('emailModal').classList.add('open');
@@ -808,26 +862,25 @@ Copy
     }
  
     const greeting = from ? `Hi, ${from} has shared their savings goal results with you.` : 'Here are my savings goal results from VaultGoal.com:';
- 
     const subject = encodeURIComponent(`Savings Goal: ${r.name} — VaultGoal.com`);
     const body = encodeURIComponent(
 `${greeting}
- 
+
 ━━━━━━━━━━━━━━━━━━━━━
 SAVINGS GOAL: ${r.name.toUpperCase()}
 ━━━━━━━━━━━━━━━━━━━━━
- 
+
 🎯 Target Amount:      $${r.target.toLocaleString()}
 💰 Current Savings:    $${r.current.toLocaleString()}
 📉 Remaining:          $${Math.round(r.remaining).toLocaleString()}
 📈 Progress:           ${r.pct}% complete
- 
+
 📅 Monthly Contribution: $${r.monthly.toLocaleString()}
 ${r.rate ? `📊 Interest Rate: ${r.rate}% APY` : ''}
- 
+
 ⏱ Time to Goal:  ${r.monthsLabel}
 🗓 Target Date:   ${r.dateStr}
- 
+
 ━━━━━━━━━━━━━━━━━━━━━
 MILESTONES
 ━━━━━━━━━━━━━━━━━━━━━
@@ -835,11 +888,11 @@ MILESTONES
 50%  →  $${Math.round(r.target * 0.50).toLocaleString()}
 75%  →  $${Math.round(r.target * 0.75).toLocaleString()}
 100% →  $${Math.round(r.target).toLocaleString()}
- 
+
 ━━━━━━━━━━━━━━━━━━━━━
 Try the free Savings Goal Tracker at:
 https://vaultgoal.com
- 
+
 Powered by Sharpline · vaultgoal.com
 Results are estimates only and not financial advice.`
     );
@@ -864,8 +917,13 @@ Results are estimates only and not financial advice.`
 </script>
  
 <footer>
-  Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp; Results are estimates
+  Sharpline · vaultgoal.com © <span id="year"></span> &nbsp;·&nbsp;
+  <a href="about.html" style="color:var(--sage);text-decoration:none;">About</a> &nbsp;·&nbsp;
+  <a href="privacy.html" style="color:var(--sage);text-decoration:none;">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="contact.html" style="color:var(--sage);text-decoration:none;">Contact</a> &nbsp;·&nbsp;
+  Not financial advice &nbsp;·&nbsp; Results are estimates
 </footer>
- 
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>

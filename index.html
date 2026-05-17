@@ -64,27 +64,13 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
-    color: var(--sage);
-    letter-spacing: -0.02em;
-  }
-
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--sage); letter-spacing: -0.02em; }
   .logo span { color: var(--gold); }
-
-  .tagline {
-    font-size: 0.7rem;
-    color: var(--muted);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
+  .tagline { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
 
   nav {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     padding: 0.8rem 3rem;
     border-top: 1px solid var(--border);
     background: var(--cream);
@@ -96,14 +82,7 @@
     box-shadow: 0 -2px 12px rgba(15,26,15,0.06);
   }
 
-  nav a {
-    color: var(--sage);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
+  nav a { color: var(--sage); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   nav a:hover { color: var(--gold); }
 
   main {
@@ -116,12 +95,7 @@
     align-items: start;
   }
 
-  .panel {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-  }
+  .panel { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; }
 
   .panel-title {
     font-family: 'DM Serif Display', serif;
@@ -133,26 +107,13 @@
     gap: 0.5rem;
   }
 
-  .panel-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .panel-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
   .field { margin-bottom: 1.2rem; }
 
-  label {
-    display: block;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
+  label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
 
-  input[type="text"],
-  input[type="number"] {
+  input[type="text"], input[type="number"] {
     width: 100%;
     background: var(--paper);
     border: 1px solid var(--border);
@@ -165,33 +126,14 @@
     outline: none;
   }
 
-  input:focus {
-    border-color: var(--sage);
-    box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.12);
-  }
+  input:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.12); }
 
   .input-prefix { position: relative; }
-  .input-prefix span {
-    position: absolute;
-    left: 0.85rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    font-size: 0.9rem;
-    pointer-events: none;
-  }
+  .input-prefix span { position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.9rem; pointer-events: none; }
   .input-prefix input { padding-left: 1.6rem; }
 
   .input-suffix { position: relative; }
-  .input-suffix span {
-    position: absolute;
-    right: 0.85rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    font-size: 0.75rem;
-    pointer-events: none;
-  }
+  .input-suffix span { position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.75rem; pointer-events: none; }
   .input-suffix input { padding-right: 3rem; }
 
   button {
@@ -213,53 +155,16 @@
   button:hover { background: #3d6849; }
   button:active { transform: scale(0.99); }
 
-  .results {
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.4s, transform 0.4s;
-  }
+  .results { opacity: 0; transform: translateY(8px); transition: opacity 0.4s, transform 0.4s; }
+  .results.visible { opacity: 1; transform: translateY(0); }
 
-  .results.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .goal-name-display { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--sage); margin-bottom: 0.2rem; font-style: italic; }
+  .goal-amount-display { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1.5rem; }
 
-  .goal-name-display {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem;
-    color: var(--sage);
-    margin-bottom: 0.2rem;
-    font-style: italic;
-  }
-
-  .goal-amount-display {
-    font-size: 0.75rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    margin-bottom: 1.5rem;
-  }
-
-  .progress-ring-wrap {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-
+  .progress-ring-wrap { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
   .ring-svg { flex-shrink: 0; }
-
   .ring-track { fill: none; stroke: var(--sage-pale); stroke-width: 8; }
-
-  .ring-fill {
-    fill: none;
-    stroke: var(--sage);
-    stroke-width: 8;
-    stroke-linecap: round;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-    transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1);
-  }
-
+  .ring-fill { fill: none; stroke: var(--sage); stroke-width: 8; stroke-linecap: round; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset 1s cubic-bezier(0.4,0,0.2,1); }
   .ring-label { text-anchor: middle; dominant-baseline: middle; font-family: 'DM Mono', monospace; fill: var(--ink); }
   .ring-pct { font-size: 18px; font-weight: 500; }
   .ring-sub { font-size: 7px; fill: var(--muted); }
@@ -274,154 +179,48 @@
   .timeline-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; }
   .milestones { display: flex; flex-direction: column; gap: 0.5rem; }
 
-  .milestone {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    animation: fadeUp 0.4s ease both;
-  }
+  .milestone { display: flex; align-items: center; gap: 0.7rem; animation: fadeUp 0.4s ease both; }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
   .milestone-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .milestone-dot.done { background: var(--sage); }
   .milestone-dot.future { background: var(--border); border: 1px solid var(--sage-light); }
 
   .milestone-bar-wrap { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
-  .milestone-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--sage-light), var(--sage));
-    border-radius: 2px;
-    transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
-  }
+  .milestone-bar { height: 100%; background: linear-gradient(90deg, var(--sage-light), var(--sage)); border-radius: 2px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
 
   .milestone-text { font-size: 0.7rem; color: var(--ink); white-space: nowrap; min-width: 90px; text-align: right; }
   .milestone-date { font-size: 0.65rem; color: var(--muted); min-width: 60px; }
 
-  .tip-box {
-    background: var(--sage-pale);
-    border-left: 3px solid var(--sage);
-    padding: 0.8rem 1rem;
-    margin-top: 1.2rem;
-    border-radius: 0 2px 2px 0;
-    font-size: 0.75rem;
-    color: var(--sage);
-    line-height: 1.5;
-  }
-
+  .tip-box { background: var(--sage-pale); border-left: 3px solid var(--sage); padding: 0.8rem 1rem; margin-top: 1.2rem; border-radius: 0 2px 2px 0; font-size: 0.75rem; color: var(--sage); line-height: 1.5; }
   .tip-box strong { color: var(--ink); }
 
-  .side-ad {
-    background: var(--cream);
-    border: 1px dashed var(--border);
-    padding: 0.8rem;
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    margin-top: 1.5rem;
-  }
+  .side-ad { background: var(--cream); border: 1px dashed var(--border); padding: 0.8rem; text-align: center; color: var(--muted); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-top: 1.5rem; }
+  .side-ad-box { background: var(--border); height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 2px; margin-top: 0.4rem; color: var(--muted); font-size: 0.7rem; }
 
-  .side-ad-box {
-    background: var(--border);
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    margin-top: 0.4rem;
-    color: var(--muted);
-    font-size: 0.7rem;
-  }
-
-  /* Share row */
-  .share-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
-    margin-top: 1.2rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .share-row button {
-    margin-top: 0;
-    font-size: 0.72rem;
-    padding: 0.65rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-  }
-
+  .share-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+  .share-row button { margin-top: 0; font-size: 0.72rem; padding: 0.65rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
   .btn-secondary { background: transparent; color: var(--sage); border: 1px solid var(--sage); }
   .btn-secondary:hover { background: var(--sage-pale); }
   .btn-gold { background: var(--gold); }
   .btn-gold:hover { background: #b07820; }
 
-  /* Cross-links panel */
-  .tools-panel {
-    max-width: 860px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-  }
-
-  .tools-panel-inner {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.8rem;
-  }
-
-  .tools-panel-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
-    color: var(--ink);
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .tools-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .tool-card {
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.2rem;
-    text-decoration: none;
-    color: var(--ink);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    display: block;
-  }
-
+  .tools-panel { max-width: 860px; margin: 2rem auto; padding: 0 2rem; }
+  .tools-panel-inner { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; }
+  .tools-panel-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--ink); padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .tool-card { background: var(--paper); border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem; text-decoration: none; color: var(--ink); transition: border-color 0.2s, box-shadow 0.2s; display: block; }
   .tool-card:hover { border-color: var(--sage); box-shadow: 0 2px 8px rgba(74,124,89,0.12); }
   .tool-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
   .tool-name { font-size: 0.8rem; font-weight: 500; color: var(--sage); margin-bottom: 0.3rem; }
   .tool-desc { font-size: 0.68rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.5rem; }
   .tool-link { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.05em; }
 
-  /* Ad below results */
-  .bottom-ad {
-    max-width: 860px;
-    margin: 0 auto 1.5rem;
-    padding: 0 2rem;
-    text-align: center;
-  }
-
+  .bottom-ad { max-width: 860px; margin: 0 auto 1.5rem; padding: 0 2rem; text-align: center; }
   .bottom-ad-label { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .bottom-ad-box { background: var(--border); height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 2px; color: var(--muted); font-size: 0.7rem; font-family: 'DM Mono', monospace; }
 
-  /* Modal */
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,26,15,0.5); z-index: 200; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; }
   .modal { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; width: 100%; max-width: 400px; margin: 1rem; }
@@ -433,16 +232,7 @@
   .modal label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
   .modal-note { font-size: 0.65rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5; }
 
-  footer {
-    text-align: center;
-    padding: 1.5rem 2rem;
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    border-top: 1px solid var(--border);
-    margin-top: 1rem;
-  }
-
+  footer { text-align: center; padding: 1.5rem 2rem; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; border-top: 1px solid var(--border); margin-top: 1rem; }
   footer a { color: var(--sage); text-decoration: none; }
 
   @media (max-width: 640px) {
@@ -472,7 +262,6 @@
 </header>
 
 <main>
-  <!-- Input Panel -->
   <div class="panel">
     <div class="panel-title">Your Goal</div>
 
@@ -525,7 +314,6 @@
     </div>
   </div>
 
-  <!-- Results Panel -->
   <div class="panel results" id="results">
     <div class="goal-name-display" id="dispName">Emergency Fund</div>
     <div class="goal-amount-display" id="dispSub">$500 saved of $5,000 goal</div>
@@ -573,24 +361,22 @@
   </div>
 </main>
 
-<!-- Bottom AdSense -->
 <div class="bottom-ad">
   <div class="bottom-ad-label">Advertisement</div>
   <div class="bottom-ad-box">AdSense 728×90 Leaderboard</div>
 </div>
 
-<!-- Cross-links to other Sharpline tools -->
 <div class="tools-panel">
   <div class="tools-panel-inner">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
-      <a href="https://503020.ca" class="tool-card" target="_blank">
+      <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
         <div class="tool-icon">📊</div>
         <div class="tool-name">50/30/20 Budget Calculator</div>
         <div class="tool-desc">Split your monthly income into needs, wants and savings instantly. The proven budgeting method used by millions.</div>
         <div class="tool-link">503020.ca →</div>
       </a>
-      <a href="https://debtcrusher.ca" class="tool-card" target="_blank">
+      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
         <div class="tool-icon">💳</div>
         <div class="tool-name">Debt Payoff Calculator</div>
         <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date and how much interest you'll save.</div>
@@ -615,7 +401,6 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- Email Modal -->
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
     <div class="modal-title">
@@ -655,8 +440,8 @@
       return;
     }
 
-    const remaining  = Math.max(target - current, 0);
-    const pct        = Math.min((current / target) * 100, 100);
+    const remaining   = Math.max(target - current, 0);
+    const pct         = Math.min((current / target) * 100, 100);
     const monthlyRate = rate / 100 / 12;
 
     let months = 0;
@@ -672,26 +457,23 @@
       }
     }
 
-    const now = new Date();
+    const now        = new Date();
     const targetDate = new Date(now.getFullYear(), now.getMonth() + months, 1);
-    const dateStr = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    const dateStr    = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 
     lastResults = { name, target, current, monthly, rate, months, dateStr, pct: Math.round(pct), remaining };
 
-    document.getElementById('dispName').textContent    = name;
-    document.getElementById('dispSub').textContent     = fmt(current) + ' saved of ' + fmt(target) + ' goal';
+    document.getElementById('dispName').textContent      = name;
+    document.getElementById('dispSub').textContent       = fmt(current) + ' saved of ' + fmt(target) + ' goal';
     document.getElementById('dispRemaining').textContent = fmt(remaining);
-    document.getElementById('dispMonths').textContent  = months === 0 ? "You're already there! 🎉" : months === 1 ? '1 month' : months + ' months';
-    document.getElementById('dispDate').textContent    = months === 0 ? '—' : dateStr;
-    document.getElementById('ringPct').textContent     = Math.round(pct) + '%';
+    document.getElementById('dispMonths').textContent    = months === 0 ? "You're already there! 🎉" : months === 1 ? '1 month' : months + ' months';
+    document.getElementById('dispDate').textContent      = months === 0 ? '—' : dateStr;
+    document.getElementById('ringPct').textContent       = Math.round(pct) + '%';
 
     const circumference = 251.2;
     const offset = circumference - (pct / 100) * circumference;
-    setTimeout(() => {
-      document.getElementById('ringFill').style.strokeDashoffset = offset;
-    }, 100);
+    setTimeout(() => { document.getElementById('ringFill').style.strokeDashoffset = offset; }, 100);
 
-    // Milestones
     const milestonesEl = document.getElementById('milestones');
     milestonesEl.innerHTML = '';
     [25, 50, 75, 100].forEach((m, i) => {
@@ -704,16 +486,12 @@
         mMonths = Math.ceil(mRemaining / monthly);
       } else {
         let b = current;
-        while (b < mAmount && mMonths < 600) {
-          b = b * (1 + monthlyRate) + monthly;
-          mMonths++;
-        }
+        while (b < mAmount && mMonths < 600) { b = b * (1 + monthlyRate) + monthly; mMonths++; }
       }
       const mDate    = new Date(now.getFullYear(), now.getMonth() + mMonths, 1);
       const mDateStr = mMonths === 0 ? 'Done ✓' : mDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
       const done     = current >= mAmount;
       const barPct   = done ? 100 : Math.min((current / mAmount) * 100, 100);
-
       const el = document.createElement('div');
       el.className = 'milestone';
       el.style.animationDelay = (i * 0.08) + 's';
@@ -726,12 +504,9 @@
     });
 
     setTimeout(() => {
-      document.querySelectorAll('.milestone-bar').forEach(bar => {
-        bar.style.width = bar.dataset.target + '%';
-      });
+      document.querySelectorAll('.milestone-bar').forEach(bar => { bar.style.width = bar.dataset.target + '%'; });
     }, 200);
 
-    // Tip
     let tip = '';
     if (months === 0) {
       tip = '🎉 <strong>Congratulations!</strong> You\'ve already reached your goal!';
@@ -750,7 +525,7 @@
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  function printResults() { window.print(); }
+  function printResults()    { window.print(); }
   function openEmailModal()  { document.getElementById('emailModal').classList.add('open'); }
   function closeEmailModal() { document.getElementById('emailModal').classList.remove('open'); }
 
@@ -758,9 +533,7 @@
     const to   = document.getElementById('emailTo').value.trim();
     const from = document.getElementById('emailFrom').value.trim();
     const r    = lastResults;
-
     if (!to) { alert('Please enter a recipient email address.'); return; }
-
     const greeting = from ? 'Hi, ' + from + ' has shared their savings goal results with you.' : 'Here are my savings goal results from VaultGoal.com:';
     const subject  = encodeURIComponent('Savings Goal: ' + r.name + ' — VaultGoal.com');
     const body     = encodeURIComponent(
@@ -782,7 +555,6 @@
       'Powered by Sharpline · vaultgoal.com\n' +
       'Results are estimates only and not financial advice.'
     );
-
     window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
     closeEmailModal();
   }
@@ -793,11 +565,11 @@
   });
 
   window.addEventListener('load', function() {
-    document.getElementById('goalName').value    = 'Emergency Fund';
-    document.getElementById('targetAmount').value = '5000';
+    document.getElementById('goalName').value       = 'Emergency Fund';
+    document.getElementById('targetAmount').value   = '5000';
     document.getElementById('currentSavings').value = '750';
-    document.getElementById('monthly').value     = '250';
-    document.getElementById('interest').value    = '4.5';
+    document.getElementById('monthly').value        = '250';
+    document.getElementById('interest').value       = '4.5';
     setTimeout(calculate, 600);
   });
 </script>

@@ -370,18 +370,76 @@
   <div class="tools-panel-inner">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
-      <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">📊</div>
-        <div class="tool-name">50/30/20 Budget Calculator</div>
-        <div class="tool-desc">Split your monthly income into needs, wants and savings instantly. The proven budgeting method used by millions.</div>
-        <div class="tool-link">503020.ca →</div>
-      </a>
-      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
-        <div class="tool-icon">💳</div>
-        <div class="tool-name">Debt Payoff Calculator</div>
-        <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date and how much interest you'll save.</div>
-        <div class="tool-link">debtcrusher.ca →</div>
-      </a>
+  <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">📊</div>
+    <div class="tool-name">50/30/20 Budget Calculator</div>
+    <div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div>
+    <div class="tool-link">503020.ca →</div>
+  </a>
+  <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">💳</div>
+    <div class="tool-name">Debt Payoff Calculator</div>
+    <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date.</div>
+    <div class="tool-link">debtcrusher.ca →</div>
+  </a>
+  <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">🏠</div>
+    <div class="tool-name">Canadian Mortgage Calculator</div>
+    <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div>
+    <div class="tool-link">mortgagemasher.com →</div>
+  </a>
+</div>
+
+For 503020.ca — same process, replace tools-grid with:
+html<div class="tools-grid">
+  <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">🎯</div>
+    <div class="tool-name">Savings Goal Tracker</div>
+    <div class="tool-desc">See exactly when you'll reach any savings goal with milestone dates.</div>
+    <div class="tool-link">vaultgoal.com →</div>
+  </a>
+  <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">💳</div>
+    <div class="tool-name">Debt Payoff Calculator</div>
+    <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date.</div>
+    <div class="tool-link">debtcrusher.ca →</div>
+  </a>
+  <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">🏠</div>
+    <div class="tool-name">Canadian Mortgage Calculator</div>
+    <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div>
+    <div class="tool-link">mortgagemasher.com →</div>
+  </a>
+</div>
+
+For debtcrusher.ca — same process:
+html<div class="tools-grid">
+  <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">🎯</div>
+    <div class="tool-name">Savings Goal Tracker</div>
+    <div class="tool-desc">See exactly when you'll reach any savings goal with milestone dates.</div>
+    <div class="tool-link">vaultgoal.com →</div>
+  </a>
+  <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">📊</div>
+    <div class="tool-name">50/30/20 Budget Calculator</div>
+    <div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div>
+    <div class="tool-link">503020.ca →</div>
+  </a>
+  <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
+    <div class="tool-icon">🏠</div>
+    <div class="tool-name">Canadian Mortgage Calculator</div>
+    <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div>
+    <div class="tool-link">mortgagemasher.com →</div>
+  </a>
+</div>
+
+Also update the CSS on vaultgoal.com — change the tools grid from 2 columns to 3:
+Find .tools-grid in the CSS and change:
+cssgrid-template-columns: 1fr 1fr;
+To:
+cssgrid-template-columns: 1fr 1fr 1fr;
+Do all three repos and all four sites will be fully cross-linked! Let me know if you need me to rebuild any of the full index.html files instead.
     </div>
   </div>
 </div>

@@ -28,139 +28,41 @@
     --sage-light: #7aaa8a;
     --sage-pale: #d4e8da;
     --gold: #c8922a;
-    --gold-light: #f0c060;
     --cream: #faf7f0;
     --muted: #8a8a7a;
     --border: #d8d0c0;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'DM Mono', monospace;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-    padding-bottom: 4rem;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 100;
-    opacity: 0.5;
-  }
-
-  header {
-    padding: 2.5rem 3rem 1.5rem;
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    border-bottom: 1px solid var(--border);
-  }
-
+  body { background: var(--paper); color: var(--ink); font-family: 'DM Mono', monospace; min-height: 100vh; position: relative; overflow-x: hidden; padding-bottom: 4rem; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 100; opacity: 0.5; }
+  header { padding: 2.5rem 3rem 1.5rem; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); }
   .logo { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--sage); letter-spacing: -0.02em; }
   .logo span { color: var(--gold); }
   .tagline { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
-
-  nav {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    padding: 0.8rem 3rem;
-    border-top: 1px solid var(--border);
-    background: var(--cream);
-    display: flex;
-    gap: 1.5rem;
-    font-size: 0.72rem;
-    z-index: 99;
-    justify-content: center;
-    box-shadow: 0 -2px 12px rgba(15,26,15,0.06);
-  }
-
+  nav { position: fixed; bottom: 0; left: 0; right: 0; padding: 0.8rem 3rem; border-top: 1px solid var(--border); background: var(--cream); display: flex; gap: 1.5rem; font-size: 0.72rem; z-index: 99; justify-content: center; box-shadow: 0 -2px 12px rgba(15,26,15,0.06); }
   nav a { color: var(--sage); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   nav a:hover { color: var(--gold); }
-
-  main {
-    max-width: 860px;
-    margin: 2.5rem auto;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-
+  main { max-width: 860px; margin: 2.5rem auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
   .panel { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; }
-
-  .panel-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    color: var(--ink);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
+  .panel-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--ink); display: flex; align-items: center; gap: 0.5rem; }
   .panel-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
   .field { margin-bottom: 1.2rem; }
-
   label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-
-  input[type="text"], input[type="number"] {
-    width: 100%;
-    background: var(--paper);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 0.65rem 0.85rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.95rem;
-    color: var(--ink);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-
+  input[type="text"], input[type="number"] { width: 100%; background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 0.65rem 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.95rem; color: var(--ink); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
   input:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.12); }
-
   .input-prefix { position: relative; }
   .input-prefix span { position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.9rem; pointer-events: none; }
   .input-prefix input { padding-left: 1.6rem; }
-
   .input-suffix { position: relative; }
   .input-suffix span { position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 0.75rem; pointer-events: none; }
   .input-suffix input { padding-right: 3rem; }
-
-  button {
-    width: 100%;
-    background: var(--sage);
-    color: white;
-    border: none;
-    border-radius: 2px;
-    padding: 0.85rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    margin-top: 0.5rem;
-  }
-
+  button { width: 100%; background: var(--sage); color: white; border: none; border-radius: 2px; padding: 0.85rem; font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.1s; margin-top: 0.5rem; }
   button:hover { background: #3d6849; }
   button:active { transform: scale(0.99); }
-
   .results { opacity: 0; transform: translateY(8px); transition: opacity 0.4s, transform 0.4s; }
   .results.visible { opacity: 1; transform: translateY(0); }
-
   .goal-name-display { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--sage); margin-bottom: 0.2rem; font-style: italic; }
   .goal-amount-display { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 1.5rem; }
-
   .progress-ring-wrap { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
   .ring-svg { flex-shrink: 0; }
   .ring-track { fill: none; stroke: var(--sage-pale); stroke-width: 8; }
@@ -168,59 +70,46 @@
   .ring-label { text-anchor: middle; dominant-baseline: middle; font-family: 'DM Mono', monospace; fill: var(--ink); }
   .ring-pct { font-size: 18px; font-weight: 500; }
   .ring-sub { font-size: 7px; fill: var(--muted); }
-
   .ring-info { flex: 1; }
   .ring-info .stat { margin-bottom: 0.6rem; }
   .stat-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
   .stat-value { font-size: 1.1rem; font-weight: 500; color: var(--ink); }
   .stat-value.highlight { color: var(--gold); font-size: 1.3rem; }
-
   .timeline-section { border-top: 1px solid var(--border); padding-top: 1.2rem; margin-top: 0.5rem; }
   .timeline-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; }
   .milestones { display: flex; flex-direction: column; gap: 0.5rem; }
-
   .milestone { display: flex; align-items: center; gap: 0.7rem; animation: fadeUp 0.4s ease both; }
-
   @keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
   .milestone-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .milestone-dot.done { background: var(--sage); }
   .milestone-dot.future { background: var(--border); border: 1px solid var(--sage-light); }
-
   .milestone-bar-wrap { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
   .milestone-bar { height: 100%; background: linear-gradient(90deg, var(--sage-light), var(--sage)); border-radius: 2px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
-
   .milestone-text { font-size: 0.7rem; color: var(--ink); white-space: nowrap; min-width: 90px; text-align: right; }
   .milestone-date { font-size: 0.65rem; color: var(--muted); min-width: 60px; }
-
   .tip-box { background: var(--sage-pale); border-left: 3px solid var(--sage); padding: 0.8rem 1rem; margin-top: 1.2rem; border-radius: 0 2px 2px 0; font-size: 0.75rem; color: var(--sage); line-height: 1.5; }
   .tip-box strong { color: var(--ink); }
-
   .side-ad { background: var(--cream); border: 1px dashed var(--border); padding: 0.8rem; text-align: center; color: var(--muted); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-top: 1.5rem; }
   .side-ad-box { background: var(--border); height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 2px; margin-top: 0.4rem; color: var(--muted); font-size: 0.7rem; }
-
   .share-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
   .share-row button { margin-top: 0; font-size: 0.72rem; padding: 0.65rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
   .btn-secondary { background: transparent; color: var(--sage); border: 1px solid var(--sage); }
   .btn-secondary:hover { background: var(--sage-pale); }
   .btn-gold { background: var(--gold); }
   .btn-gold:hover { background: #b07820; }
-
   .tools-panel { max-width: 860px; margin: 2rem auto; padding: 0 2rem; }
   .tools-panel-inner { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; }
   .tools-panel-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--ink); padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
-  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
   .tool-card { background: var(--paper); border: 1px solid var(--border); border-radius: 4px; padding: 1.2rem; text-decoration: none; color: var(--ink); transition: border-color 0.2s, box-shadow 0.2s; display: block; }
   .tool-card:hover { border-color: var(--sage); box-shadow: 0 2px 8px rgba(74,124,89,0.12); }
   .tool-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
   .tool-name { font-size: 0.8rem; font-weight: 500; color: var(--sage); margin-bottom: 0.3rem; }
   .tool-desc { font-size: 0.68rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.5rem; }
   .tool-link { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.05em; }
-
   .bottom-ad { max-width: 860px; margin: 0 auto 1.5rem; padding: 0 2rem; text-align: center; }
   .bottom-ad-label { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .bottom-ad-box { background: var(--border); height: 90px; display: flex; align-items: center; justify-content: center; border-radius: 2px; color: var(--muted); font-size: 0.7rem; font-family: 'DM Mono', monospace; }
-
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,26,15,0.5); z-index: 200; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; }
   .modal { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; width: 100%; max-width: 400px; margin: 1rem; }
@@ -231,10 +120,8 @@
   .modal input:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(74,124,89,0.12); }
   .modal label { display: block; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
   .modal-note { font-size: 0.65rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5; }
-
   footer { text-align: center; padding: 1.5rem 2rem; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; border-top: 1px solid var(--border); margin-top: 1rem; }
   footer a { color: var(--sage); text-decoration: none; }
-
   @media (max-width: 640px) {
     main { grid-template-columns: 1fr; }
     header { padding: 1.5rem; flex-direction: column; gap: 0.3rem; }
@@ -242,7 +129,6 @@
     .share-row { grid-template-columns: 1fr; }
     nav { padding: 0.8rem 1rem; gap: 0.8rem; font-size: 0.65rem; }
   }
-
   @media print {
     body::before, .side-ad, .share-row, nav, .tools-panel, .bottom-ad { display: none !important; }
     header { border-bottom: 2px solid #4a7c59; padding: 1rem; }
@@ -264,50 +150,30 @@
 <main>
   <div class="panel">
     <div class="panel-title">Your Goal</div>
-
     <div class="field">
       <label>Goal Name</label>
       <input type="text" id="goalName" placeholder="e.g. Emergency Fund" />
     </div>
-
     <div class="field">
       <label>Target Amount</label>
-      <div class="input-prefix">
-        <span>$</span>
-        <input type="number" id="targetAmount" placeholder="5,000" min="1" />
-      </div>
+      <div class="input-prefix"><span>$</span><input type="number" id="targetAmount" placeholder="5,000" min="1" /></div>
     </div>
-
     <div class="field">
       <label>Current Savings</label>
-      <div class="input-prefix">
-        <span>$</span>
-        <input type="number" id="currentSavings" placeholder="500" min="0" />
-      </div>
+      <div class="input-prefix"><span>$</span><input type="number" id="currentSavings" placeholder="500" min="0" /></div>
     </div>
-
     <div class="field">
       <label>Monthly Contribution</label>
-      <div class="input-prefix">
-        <span>$</span>
-        <input type="number" id="monthly" placeholder="200" min="1" />
-      </div>
+      <div class="input-prefix"><span>$</span><input type="number" id="monthly" placeholder="200" min="1" /></div>
     </div>
-
     <div class="field">
       <label>Annual Interest Rate (optional)</label>
-      <div class="input-suffix">
-        <span>% APY</span>
-        <input type="number" id="interest" placeholder="4.5" min="0" step="0.01" />
-      </div>
+      <div class="input-suffix"><span>% APY</span><input type="number" id="interest" placeholder="4.5" min="0" step="0.01" /></div>
     </div>
-
     <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.8rem;letter-spacing:0.04em;line-height:1.5;">
       ✏️ Edit the fields above with your details, then tap Calculate to see your personal savings timeline.
     </p>
-
     <button onclick="calculate()">Calculate My Timeline →</button>
-
     <div class="side-ad">
       <div>Advertisement</div>
       <div class="side-ad-box">AdSense 300×250</div>
@@ -317,43 +183,24 @@
   <div class="panel results" id="results">
     <div class="goal-name-display" id="dispName">Emergency Fund</div>
     <div class="goal-amount-display" id="dispSub">$500 saved of $5,000 goal</div>
-
     <div class="progress-ring-wrap">
       <svg class="ring-svg" width="100" height="100" viewBox="0 0 100 100">
         <circle class="ring-track" cx="50" cy="50" r="40"/>
-        <circle class="ring-fill" id="ringFill" cx="50" cy="50" r="40"
-          stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
-        <text class="ring-label" x="50" y="46">
-          <tspan class="ring-pct" id="ringPct" x="50" dy="0">0%</tspan>
-        </text>
-        <text class="ring-label" x="50" y="62">
-          <tspan class="ring-sub">complete</tspan>
-        </text>
+        <circle class="ring-fill" id="ringFill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
+        <text class="ring-label" x="50" y="46"><tspan class="ring-pct" id="ringPct" x="50" dy="0">0%</tspan></text>
+        <text class="ring-label" x="50" y="62"><tspan class="ring-sub">complete</tspan></text>
       </svg>
-
       <div class="ring-info">
-        <div class="stat">
-          <div class="stat-label">Remaining</div>
-          <div class="stat-value" id="dispRemaining">$4,500</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">You'll reach your goal in</div>
-          <div class="stat-value highlight" id="dispMonths">23 months</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">Target Date</div>
-          <div class="stat-value" id="dispDate">Apr 2027</div>
-        </div>
+        <div class="stat"><div class="stat-label">Remaining</div><div class="stat-value" id="dispRemaining">$4,500</div></div>
+        <div class="stat"><div class="stat-label">You'll reach your goal in</div><div class="stat-value highlight" id="dispMonths">23 months</div></div>
+        <div class="stat"><div class="stat-label">Target Date</div><div class="stat-value" id="dispDate">Apr 2027</div></div>
       </div>
     </div>
-
     <div class="timeline-section">
       <div class="timeline-label">Milestone Timeline</div>
       <div class="milestones" id="milestones"></div>
     </div>
-
     <div class="tip-box" id="tipBox"></div>
-
     <div class="share-row" id="shareRow" style="display:none;">
       <button class="btn-secondary" onclick="printResults()">🖨️ Print Results</button>
       <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
@@ -370,76 +217,24 @@
   <div class="tools-panel-inner">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
-  <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">📊</div>
-    <div class="tool-name">50/30/20 Budget Calculator</div>
-    <div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div>
-    <div class="tool-link">503020.ca →</div>
-  </a>
-  <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">💳</div>
-    <div class="tool-name">Debt Payoff Calculator</div>
-    <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date.</div>
-    <div class="tool-link">debtcrusher.ca →</div>
-  </a>
-  <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">🏠</div>
-    <div class="tool-name">Canadian Mortgage Calculator</div>
-    <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div>
-    <div class="tool-link">mortgagemasher.com →</div>
-  </a>
-</div>
-
-For 503020.ca — same process, replace tools-grid with:
-html<div class="tools-grid">
-  <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">🎯</div>
-    <div class="tool-name">Savings Goal Tracker</div>
-    <div class="tool-desc">See exactly when you'll reach any savings goal with milestone dates.</div>
-    <div class="tool-link">vaultgoal.com →</div>
-  </a>
-  <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">💳</div>
-    <div class="tool-name">Debt Payoff Calculator</div>
-    <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date.</div>
-    <div class="tool-link">debtcrusher.ca →</div>
-  </a>
-  <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">🏠</div>
-    <div class="tool-name">Canadian Mortgage Calculator</div>
-    <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div>
-    <div class="tool-link">mortgagemasher.com →</div>
-  </a>
-</div>
-
-For debtcrusher.ca — same process:
-html<div class="tools-grid">
-  <a href="https://vaultgoal.com" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">🎯</div>
-    <div class="tool-name">Savings Goal Tracker</div>
-    <div class="tool-desc">See exactly when you'll reach any savings goal with milestone dates.</div>
-    <div class="tool-link">vaultgoal.com →</div>
-  </a>
-  <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">📊</div>
-    <div class="tool-name">50/30/20 Budget Calculator</div>
-    <div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div>
-    <div class="tool-link">503020.ca →</div>
-  </a>
-  <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
-    <div class="tool-icon">🏠</div>
-    <div class="tool-name">Canadian Mortgage Calculator</div>
-    <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div>
-    <div class="tool-link">mortgagemasher.com →</div>
-  </a>
-</div>
-
-Also update the CSS on vaultgoal.com — change the tools grid from 2 columns to 3:
-Find .tools-grid in the CSS and change:
-cssgrid-template-columns: 1fr 1fr;
-To:
-cssgrid-template-columns: 1fr 1fr 1fr;
-Do all three repos and all four sites will be fully cross-linked! Let me know if you need me to rebuild any of the full index.html files instead.
+      <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener">
+        <div class="tool-icon">📊</div>
+        <div class="tool-name">50/30/20 Budget Calculator</div>
+        <div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div>
+        <div class="tool-link">503020.ca →</div>
+      </a>
+      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener">
+        <div class="tool-icon">💳</div>
+        <div class="tool-name">Debt Payoff Calculator</div>
+        <div class="tool-desc">Snowball or Avalanche — see your exact debt-free date.</div>
+        <div class="tool-link">debtcrusher.ca →</div>
+      </a>
+      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener">
+        <div class="tool-icon">🏠</div>
+        <div class="tool-name">Canadian Mortgage Calculator</div>
+        <div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div>
+        <div class="tool-link">mortgagemasher.com →</div>
+      </a>
     </div>
   </div>
 </div>
@@ -465,14 +260,8 @@ Do all three repos and all four sites will be fully cross-linked! Let me know if
       <button class="modal-close" onclick="closeEmailModal()">✕</button>
       Email Your Results
     </div>
-    <div>
-      <label>Recipient Email Address</label>
-      <input type="email" id="emailTo" placeholder="friend@example.com" />
-    </div>
-    <div>
-      <label>Your Name (optional)</label>
-      <input type="text" id="emailFrom" placeholder="e.g. John" />
-    </div>
+    <div><label>Recipient Email Address</label><input type="email" id="emailTo" placeholder="friend@example.com" /></div>
+    <div><label>Your Name (optional)</label><input type="text" id="emailFrom" placeholder="e.g. John" /></div>
     <button onclick="sendEmail()">Send Results →</button>
     <button class="btn-secondary" onclick="closeEmailModal()" style="margin-top:0.6rem;">Cancel</button>
     <p class="modal-note">This will open your default email app with your results pre-filled, ready to send.</p>
@@ -480,104 +269,65 @@ Do all three repos and all four sites will be fully cross-linked! Let me know if
 </div>
 
 <script>
-  let lastResults = {};
-
-  function fmt(n) {
-    return '$' + Number(n.toFixed(0)).toLocaleString();
-  }
+  var lastResults = {};
+  function fmt(n) { return '$' + Number(n.toFixed(0)).toLocaleString(); }
 
   function calculate() {
-    const name    = document.getElementById('goalName').value.trim() || 'My Goal';
-    const target  = parseFloat(document.getElementById('targetAmount').value);
-    const current = parseFloat(document.getElementById('currentSavings').value) || 0;
-    const monthly = parseFloat(document.getElementById('monthly').value);
-    const rate    = parseFloat(document.getElementById('interest').value) || 0;
-
-    if (!target || !monthly || target <= 0 || monthly <= 0) {
-      alert('Please enter a target amount and monthly contribution.');
-      return;
-    }
-
-    const remaining   = Math.max(target - current, 0);
-    const pct         = Math.min((current / target) * 100, 100);
-    const monthlyRate = rate / 100 / 12;
-
-    let months = 0;
-    let balance = current;
-    if (remaining <= 0) {
-      months = 0;
-    } else if (monthlyRate === 0) {
-      months = Math.ceil(remaining / monthly);
-    } else {
-      while (balance < target && months < 600) {
-        balance = balance * (1 + monthlyRate) + monthly;
-        months++;
-      }
-    }
-
-    const now        = new Date();
-    const targetDate = new Date(now.getFullYear(), now.getMonth() + months, 1);
-    const dateStr    = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-
-    lastResults = { name, target, current, monthly, rate, months, dateStr, pct: Math.round(pct), remaining };
-
+    var name    = document.getElementById('goalName').value.trim() || 'My Goal';
+    var target  = parseFloat(document.getElementById('targetAmount').value);
+    var current = parseFloat(document.getElementById('currentSavings').value) || 0;
+    var monthly = parseFloat(document.getElementById('monthly').value);
+    var rate    = parseFloat(document.getElementById('interest').value) || 0;
+    if (!target || !monthly || target <= 0 || monthly <= 0) { alert('Please enter a target amount and monthly contribution.'); return; }
+    var remaining   = Math.max(target - current, 0);
+    var pct         = Math.min((current / target) * 100, 100);
+    var monthlyRate = rate / 100 / 12;
+    var months = 0;
+    var balance = current;
+    if (remaining <= 0) { months = 0; }
+    else if (monthlyRate === 0) { months = Math.ceil(remaining / monthly); }
+    else { while (balance < target && months < 600) { balance = balance * (1 + monthlyRate) + monthly; months++; } }
+    var now = new Date();
+    var targetDate = new Date(now.getFullYear(), now.getMonth() + months, 1);
+    var dateStr = targetDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    lastResults = { name: name, target: target, current: current, monthly: monthly, rate: rate, months: months, dateStr: dateStr, pct: Math.round(pct), remaining: remaining };
     document.getElementById('dispName').textContent      = name;
     document.getElementById('dispSub').textContent       = fmt(current) + ' saved of ' + fmt(target) + ' goal';
     document.getElementById('dispRemaining').textContent = fmt(remaining);
     document.getElementById('dispMonths').textContent    = months === 0 ? "You're already there! 🎉" : months === 1 ? '1 month' : months + ' months';
     document.getElementById('dispDate').textContent      = months === 0 ? '—' : dateStr;
     document.getElementById('ringPct').textContent       = Math.round(pct) + '%';
-
-    const circumference = 251.2;
-    const offset = circumference - (pct / 100) * circumference;
-    setTimeout(() => { document.getElementById('ringFill').style.strokeDashoffset = offset; }, 100);
-
-    const milestonesEl = document.getElementById('milestones');
+    setTimeout(function() { document.getElementById('ringFill').style.strokeDashoffset = 251.2 - (pct / 100) * 251.2; }, 100);
+    var milestonesEl = document.getElementById('milestones');
     milestonesEl.innerHTML = '';
-    [25, 50, 75, 100].forEach((m, i) => {
-      const mAmount    = target * m / 100;
-      const mRemaining = Math.max(mAmount - current, 0);
-      let mMonths = 0;
-      if (mRemaining <= 0) {
-        mMonths = 0;
-      } else if (monthlyRate === 0) {
-        mMonths = Math.ceil(mRemaining / monthly);
-      } else {
-        let b = current;
-        while (b < mAmount && mMonths < 600) { b = b * (1 + monthlyRate) + monthly; mMonths++; }
-      }
-      const mDate    = new Date(now.getFullYear(), now.getMonth() + mMonths, 1);
-      const mDateStr = mMonths === 0 ? 'Done ✓' : mDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-      const done     = current >= mAmount;
-      const barPct   = done ? 100 : Math.min((current / mAmount) * 100, 100);
-      const el = document.createElement('div');
+    [25, 50, 75, 100].forEach(function(m, i) {
+      var mAmount = target * m / 100;
+      var mRemaining = Math.max(mAmount - current, 0);
+      var mMonths = 0;
+      if (mRemaining <= 0) { mMonths = 0; }
+      else if (monthlyRate === 0) { mMonths = Math.ceil(mRemaining / monthly); }
+      else { var b = current; while (b < mAmount && mMonths < 600) { b = b * (1 + monthlyRate) + monthly; mMonths++; } }
+      var mDate = new Date(now.getFullYear(), now.getMonth() + mMonths, 1);
+      var mDateStr = mMonths === 0 ? 'Done ✓' : mDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+      var done = current >= mAmount;
+      var barPct = done ? 100 : Math.min((current / mAmount) * 100, 100);
+      var el = document.createElement('div');
       el.className = 'milestone';
       el.style.animationDelay = (i * 0.08) + 's';
-      el.innerHTML =
-        '<div class="milestone-dot ' + (done ? 'done' : 'future') + '"></div>' +
+      el.innerHTML = '<div class="milestone-dot ' + (done ? 'done' : 'future') + '"></div>' +
         '<div class="milestone-bar-wrap"><div class="milestone-bar" style="width:0%" data-target="' + barPct + '"></div></div>' +
         '<div class="milestone-date">' + mDateStr + '</div>' +
         '<div class="milestone-text">' + m + '% · ' + fmt(mAmount) + '</div>';
       milestonesEl.appendChild(el);
     });
-
-    setTimeout(() => {
-      document.querySelectorAll('.milestone-bar').forEach(bar => { bar.style.width = bar.dataset.target + '%'; });
-    }, 200);
-
-    let tip = '';
-    if (months === 0) {
-      tip = '🎉 <strong>Congratulations!</strong> You\'ve already reached your goal!';
-    } else if (rate === 0) {
-      tip = '💡 <strong>Pro tip:</strong> Put your savings in a high-yield savings account (4–5% APY) to reach your goal faster. Enter an interest rate above to see the difference.';
-    } else if (months > 24) {
-      tip = '💡 <strong>Boost tip:</strong> Increasing your monthly contribution by just $50 could shave several months off your timeline.';
-    } else {
-      tip = '✅ <strong>Great pace!</strong> At ' + fmt(monthly) + '/month you\'re on track to hit ' + fmt(target) + ' by ' + dateStr + '.';
-    }
+    setTimeout(function() { document.querySelectorAll('.milestone-bar').forEach(function(bar) { bar.style.width = bar.dataset.target + '%'; }); }, 200);
+    var tip = '';
+    if (months === 0) { tip = '🎉 <strong>Congratulations!</strong> You\'ve already reached your goal!'; }
+    else if (rate === 0) { tip = '💡 <strong>Pro tip:</strong> Put your savings in a high-yield savings account (4–5% APY) to reach your goal faster.'; }
+    else if (months > 24) { tip = '💡 <strong>Boost tip:</strong> Increasing your monthly contribution by just $50 could shave several months off your timeline.'; }
+    else { tip = '✅ <strong>Great pace!</strong> At ' + fmt(monthly) + '/month you\'re on track to hit ' + fmt(target) + ' by ' + dateStr + '.'; }
     document.getElementById('tipBox').innerHTML = tip;
-
-    const resultsEl = document.getElementById('results');
+    var resultsEl = document.getElementById('results');
     resultsEl.classList.add('visible');
     document.getElementById('shareRow').style.display = 'grid';
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -588,40 +338,28 @@ Do all three repos and all four sites will be fully cross-linked! Let me know if
   function closeEmailModal() { document.getElementById('emailModal').classList.remove('open'); }
 
   function sendEmail() {
-    const to   = document.getElementById('emailTo').value.trim();
-    const from = document.getElementById('emailFrom').value.trim();
-    const r    = lastResults;
+    var to = document.getElementById('emailTo').value.trim();
+    var from = document.getElementById('emailFrom').value.trim();
+    var r = lastResults;
     if (!to) { alert('Please enter a recipient email address.'); return; }
-    const greeting = from ? 'Hi, ' + from + ' has shared their savings goal results with you.' : 'Here are my savings goal results from VaultGoal.com:';
-    const subject  = encodeURIComponent('Savings Goal: ' + r.name + ' — VaultGoal.com');
-    const body     = encodeURIComponent(
-      greeting + '\n\n' +
-      '━━━━━━━━━━━━━━━━━━━━━\n' +
-      'SAVINGS GOAL: ' + r.name.toUpperCase() + '\n' +
-      '━━━━━━━━━━━━━━━━━━━━━\n\n' +
-      '🎯 Target Amount:      $' + r.target.toLocaleString() + '\n' +
-      '💰 Current Savings:    $' + r.current.toLocaleString() + '\n' +
-      '📉 Remaining:          $' + Math.round(r.remaining).toLocaleString() + '\n' +
-      '📈 Progress:           ' + r.pct + '% complete\n\n' +
-      '📅 Monthly Contribution: $' + r.monthly.toLocaleString() + '\n' +
-      (r.rate ? '📊 Interest Rate: ' + r.rate + '% APY\n' : '') + '\n' +
-      '⏱ Time to Goal:  ' + r.months + ' months\n' +
-      '🗓 Target Date:   ' + r.dateStr + '\n\n' +
-      '━━━━━━━━━━━━━━━━━━━━━\n' +
-      'Try the free Savings Goal Tracker at:\n' +
-      'https://vaultgoal.com\n\n' +
-      'Powered by Sharpline · vaultgoal.com\n' +
-      'Results are estimates only and not financial advice.'
+    var greeting = from ? 'Hi, ' + from + ' has shared their savings goal results with you.' : 'Here are my savings goal results from VaultGoal.com:';
+    var subject = encodeURIComponent('Savings Goal: ' + r.name + ' — VaultGoal.com');
+    var body = encodeURIComponent(
+      greeting + '\n\n━━━━━━━━━━━━━━━━━━━━━\nSAVINGS GOAL: ' + r.name.toUpperCase() + '\n━━━━━━━━━━━━━━━━━━━━━\n\n' +
+      '🎯 Target:      $' + r.target.toLocaleString() + '\n' +
+      '💰 Saved:       $' + r.current.toLocaleString() + '\n' +
+      '📉 Remaining:   $' + Math.round(r.remaining).toLocaleString() + '\n' +
+      '📈 Progress:    ' + r.pct + '%\n\n' +
+      '📅 Monthly:     $' + r.monthly.toLocaleString() + '\n' +
+      (r.rate ? '📊 Rate:        ' + r.rate + '% APY\n' : '') + '\n' +
+      '⏱ Time to Goal: ' + r.months + ' months\n' +
+      '🗓 Target Date:  ' + r.dateStr + '\n\n━━━━━━━━━━━━━━━━━━━━━\nhttps://vaultgoal.com\nNot financial advice.'
     );
     window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
     closeEmailModal();
   }
 
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') calculate();
-    if (e.key === 'Escape') closeEmailModal();
-  });
-
+  document.addEventListener('keydown', function(e) { if (e.key === 'Enter') calculate(); if (e.key === 'Escape') closeEmailModal(); });
   window.addEventListener('load', function() {
     document.getElementById('goalName').value       = 'Emergency Fund';
     document.getElementById('targetAmount').value   = '5000';

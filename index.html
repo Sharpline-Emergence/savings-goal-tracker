@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Savings Goal Tracker &amp; Calculator — See When You'll Reach Your Goal | Sharpline</title>
-<meta name="description" content="Free savings goal tracker and calculator by Sharpline. Set a savings target, track your progress, and see exactly when you'll reach your goal.">
-<meta name="keywords" content="savings goal tracker, savings calculator, savings goal, how long to save, savings timeline, emergency fund calculator, free savings tool, personal finance">
+<title>Free Savings Goal Tracker &amp; Calculator — See When You'll Reach Your Goal | Sharpline VaultGoal</title>
+<meta name="description" content="Free savings goal calculator. Enter your target, current savings and monthly contribution to see exactly when you'll reach your goal — with milestone dates and compound interest. No sign-up required.">
+<meta name="keywords" content="savings goal tracker, savings calculator, savings goal, how long to save, savings timeline, emergency fund calculator, down payment calculator, compound interest calculator, free savings tool, personal finance calculator">
 <meta name="author" content="Sharpline">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://vaultgoal.com/">
 <meta property="og:title" content="Free Savings Goal Tracker &amp; Calculator | Sharpline — VaultGoal">
-<meta property="og:description" content="Set your savings goal, enter your monthly contribution, and see exactly when you'll reach it. Free, instant, no sign-up.">
+<meta property="og:description" content="Set your savings goal, enter your monthly contribution, and see exactly when you'll reach it — with milestone dates and compound interest. Free, no sign-up.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vaultgoal.com/">
 <meta property="og:site_name" content="Sharpline — VaultGoal.com">
@@ -20,10 +20,23 @@
 <meta name="google-adsense-account" content="ca-pub-8775883855490271">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8775883855490271" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How long does it take to save $10,000?","acceptedAnswer":{"@type":"Answer","text":"Saving $500 per month with no interest takes 20 months to reach $10,000. At $300 per month it takes about 33 months. Adding a 4.5% APY high-yield savings account shaves several months off your timeline through compound interest."}},
+    {"@type":"Question","name":"How much should I save for an emergency fund?","acceptedAnswer":{"@type":"Answer","text":"Financial experts recommend 3 to 6 months of essential living expenses. If your monthly expenses are $3,000, your emergency fund target should be $9,000 to $18,000. Start with $1,000 as a first milestone then build from there."}},
+    {"@type":"Question","name":"What is compound interest?","acceptedAnswer":{"@type":"Answer","text":"Compound interest means you earn interest on both your deposits and on the interest already earned. Over time this creates a snowball effect — your money grows faster the longer it stays in a high-yield savings account."}},
+    {"@type":"Question","name":"What is the best account for a savings goal?","acceptedAnswer":{"@type":"Answer","text":"A high-yield savings account (HYSA) is ideal for short to medium-term goals, currently offering 4-5% APY. In Canada, holding your HYSA inside a TFSA means your interest is completely tax-free."}},
+    {"@type":"Question","name":"How accurate is this savings calculator?","acceptedAnswer":{"@type":"Answer","text":"This calculator assumes a constant monthly contribution and fixed annual interest rate compounded monthly. Results are accurate estimates for planning purposes. Treat results as a planning guide rather than a guaranteed outcome."}}
+  ]
+}
+</script>
 <style>
   :root{--ink:#0f1a0f;--paper:#f5f0e8;--sage:#4a7c59;--sage-light:#7aaa8a;--sage-pale:#d4e8da;--gold:#c8922a;--cream:#faf7f0;--muted:#8a8a7a;--border:#d8d0c0;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;position:relative;overflow-x:hidden;padding-bottom:4rem;}
+  body{background:var(--paper);color:var(--ink);font-family:'DM Mono',monospace;min-height:100vh;overflow-x:hidden;padding-bottom:5rem;}
   body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
   header{padding:2.5rem 3rem 1.5rem;display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--border);}
   .logo{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--sage);letter-spacing:-0.02em;}
@@ -32,7 +45,7 @@
   nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 3rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.5rem;font-size:0.72rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);}
   nav a{color:var(--sage);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
   nav a:hover{color:var(--gold);}
-  main{max-width:860px;margin:2.5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+  .calc-section{max-width:860px;margin:2.5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
   .panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;}
   .panel-title{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1.5rem;color:var(--ink);display:flex;align-items:center;gap:0.5rem;}
   .panel-title::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -82,13 +95,38 @@
   .side-ad{background:var(--cream);border:1px dashed var(--border);padding:0.8rem;text-align:center;color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;margin-top:1.5rem;}
   .side-ad-box{background:var(--border);height:250px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.4rem;color:var(--muted);font-size:0.7rem;}
   .share-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border);}
-  .share-row button{margin-top:0;font-size:0.72rem;padding:0.65rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;}
+  .share-row button{margin-top:0;font-size:0.72rem;padding:0.65rem;}
   .btn-secondary{background:transparent;color:var(--sage);border:1px solid var(--sage);}
   .btn-secondary:hover{background:var(--sage-pale);}
   .btn-gold{background:var(--gold);}
   .btn-gold:hover{background:#b07820;}
-  .tools-panel{max-width:860px;margin:2rem auto;padding:0 2rem;}
-  .tools-panel-inner{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;}
+  .content-wrap{max-width:860px;margin:0 auto;padding:0 2rem;}
+  .ad-slot{background:var(--cream);border:1px dashed var(--border);text-align:center;padding:0.8rem;color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;margin:2rem 0;}
+  .ad-box{background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.3rem;color:var(--muted);font-size:0.7rem;}
+  .section{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;margin-bottom:1.5rem;}
+  .section h2{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+  .section h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--sage);margin:1.2rem 0 0.5rem;}
+  .section p{font-size:0.82rem;line-height:1.9;color:var(--ink);margin-bottom:0.8rem;}
+  .section ul{margin:0.5rem 0 0.8rem 1.2rem;}
+  .section ul li{font-size:0.82rem;line-height:1.9;color:var(--ink);margin-bottom:0.3rem;}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0;}
+  .step-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;}
+  .step-number{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--border);line-height:1;margin-bottom:0.4rem;}
+  .step-title{font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.4rem;}
+  .step-desc{font-size:0.72rem;color:var(--muted);line-height:1.7;}
+  .faq-item{border-bottom:1px solid var(--border);padding:1rem 0;}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-q{font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  .faq-q::after{content:'＋';color:var(--sage);font-size:1rem;flex-shrink:0;}
+  .faq-item.open .faq-q::after{content:'－';}
+  .faq-a{font-size:0.8rem;line-height:1.9;color:var(--muted);display:none;padding-top:0.6rem;}
+  .faq-item.open .faq-a{display:block;}
+  .tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+  .tip-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;}
+  .tip-icon{font-size:1.4rem;margin-bottom:0.4rem;}
+  .tip-title{font-size:0.78rem;font-weight:500;color:var(--sage);margin-bottom:0.4rem;}
+  .tip-text{font-size:0.72rem;color:var(--muted);line-height:1.7;}
+  .tools-panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:2rem;}
   .tools-panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.2rem;color:var(--ink);padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
   .tools-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
   .tool-card{background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:1.2rem;text-decoration:none;color:var(--ink);transition:border-color 0.2s,box-shadow 0.2s;display:block;}
@@ -97,9 +135,6 @@
   .tool-name{font-size:0.8rem;font-weight:500;color:var(--sage);margin-bottom:0.3rem;}
   .tool-desc{font-size:0.68rem;color:var(--muted);line-height:1.6;margin-bottom:0.5rem;}
   .tool-link{font-size:0.65rem;color:var(--gold);letter-spacing:0.05em;}
-  .bottom-ad{max-width:860px;margin:0 auto 1.5rem;padding:0 2rem;text-align:center;}
-  .bottom-ad-label{font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;}
-  .bottom-ad-box{background:var(--border);height:90px;display:flex;align-items:center;justify-content:center;border-radius:2px;color:var(--muted);font-size:0.7rem;font-family:'DM Mono',monospace;}
   .modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,26,15,0.5);z-index:200;align-items:center;justify-content:center;}
   .modal-overlay.open{display:flex;}
   .modal{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;width:100%;max-width:400px;margin:1rem;}
@@ -113,16 +148,18 @@
   footer{text-align:center;padding:1.5rem 2rem;font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;border-top:1px solid var(--border);margin-top:1rem;line-height:2;}
   footer a{color:var(--sage);text-decoration:none;}
   footer a:hover{color:var(--gold);}
-  @media(max-width:640px){main{grid-template-columns:1fr;}header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.tools-grid{grid-template-columns:1fr;}.share-row{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
-  @media print{body::before,.side-ad,.share-row,nav,.tools-panel,.bottom-ad{display:none !important;}header{border-bottom:2px solid #4a7c59;padding:1rem;}main{display:block;max-width:100%;padding:0;margin:1rem;}.panel{border:1px solid #ccc;margin-bottom:1rem;}.results{opacity:1 !important;transform:none !important;}button{display:none;}input{border:none;background:transparent;}}
+  @media(max-width:640px){.calc-section{grid-template-columns:1fr;}header{padding:1.5rem;flex-direction:column;gap:0.3rem;}.tools-grid{grid-template-columns:1fr;}.steps-grid{grid-template-columns:1fr;}.tips-grid{grid-template-columns:1fr;}.share-row{grid-template-columns:1fr;}nav{padding:0.8rem 1rem;gap:0.8rem;font-size:0.65rem;}}
+  @media print{body::before,.side-ad,.share-row,nav,.tools-panel,.ad-slot{display:none !important;}.results{opacity:1 !important;transform:none !important;}button{display:none;}}
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">Sharpline<span>.</span></div>
   <div class="tagline">Savings Goal Tracker | vaultgoal.com</div>
 </header>
-<main>
+
+<div class="calc-section">
   <div class="panel">
     <div class="panel-title">Your Goal</div>
     <div class="field"><label>Goal Name</label><input type="text" id="goalName" placeholder="e.g. Emergency Fund" /></div>
@@ -130,7 +167,7 @@
     <div class="field"><label>Current Savings</label><div class="input-prefix"><span>$</span><input type="number" id="currentSavings" placeholder="500" min="0" /></div></div>
     <div class="field"><label>Monthly Contribution</label><div class="input-prefix"><span>$</span><input type="number" id="monthly" placeholder="200" min="1" /></div></div>
     <div class="field"><label>Annual Interest Rate (optional)</label><div class="input-suffix"><span>% APY</span><input type="number" id="interest" placeholder="4.5" min="0" step="0.01" /></div></div>
-    <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.8rem;letter-spacing:0.04em;line-height:1.5;">✏️ Edit the fields above with your details, then tap Calculate to see your personal savings timeline.</p>
+    <p style="font-size:0.68rem;color:var(--muted);text-align:center;margin-top:0.8rem;line-height:1.5;">✏️ Fill in your details above then tap Calculate.</p>
     <button onclick="calculate()">Calculate My Timeline →</button>
     <div class="side-ad"><div>Advertisement</div><div class="side-ad-box">AdSense 300×250</div></div>
   </div>
@@ -146,7 +183,7 @@
       </svg>
       <div class="ring-info">
         <div class="stat"><div class="stat-label">Remaining</div><div class="stat-value" id="dispRemaining">$4,500</div></div>
-        <div class="stat"><div class="stat-label">You'll reach your goal in</div><div class="stat-value highlight" id="dispMonths">23 months</div></div>
+        <div class="stat"><div class="stat-label">Time to goal</div><div class="stat-value highlight" id="dispMonths">23 months</div></div>
         <div class="stat"><div class="stat-label">Target Date</div><div class="stat-value" id="dispDate">Apr 2027</div></div>
       </div>
     </div>
@@ -156,22 +193,103 @@
     </div>
     <div class="tip-box" id="tipBox"></div>
     <div class="share-row" id="shareRow" style="display:none;">
-      <button class="btn-secondary" onclick="printResults()">🖨️ Print Results</button>
+      <button class="btn-secondary" onclick="window.print()">🖨️ Print</button>
       <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
     </div>
   </div>
-</main>
-<div class="bottom-ad"><div class="bottom-ad-label">Advertisement</div><div class="bottom-ad-box">AdSense 728×90 Leaderboard</div></div>
-<div class="tools-panel">
-  <div class="tools-panel-inner">
+</div>
+
+<div class="content-wrap">
+
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90 Leaderboard</div></div>
+
+  <div class="section">
+    <h2>How the Savings Goal Calculator Works</h2>
+    <p>The VaultGoal savings calculator uses your target amount, current savings balance, monthly contribution and interest rate to calculate exactly when you will reach your goal. It accounts for compound interest and shows you 25%, 50%, 75% and 100% milestone dates so you can track your progress month by month.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-number">01</div><div class="step-title">Enter Your Goal</div><div class="step-desc">Name your goal and enter the total amount you want to reach — whether it's an emergency fund, house down payment, vacation fund or any financial target.</div></div>
+      <div class="step-card"><div class="step-number">02</div><div class="step-title">Add Your Numbers</div><div class="step-desc">Enter how much you've already saved, your planned monthly contribution, and the interest rate from your savings account to get an accurate timeline.</div></div>
+      <div class="step-card"><div class="step-number">03</div><div class="step-title">See Your Timeline</div><div class="step-desc">Instantly see your goal completion date, milestone dates at every 25% increment, and how compound interest accelerates your savings over time.</div></div>
+    </div>
+
+    <h3>What is Compound Interest?</h3>
+    <p>Compound interest means you earn interest on your interest. When you deposit money in a high-yield savings account, you earn interest on your balance every month. The following month you earn interest on a slightly larger balance — including the interest from last month. This compounding effect accelerates your savings growth significantly over time, especially over periods of 2 years or longer.</p>
+    <p>For example: saving $300 per month for 24 months with no interest gives you $7,200. At a 4.5% APY high-yield savings account, the same contributions give you approximately $7,510 — an extra $310 earned without any additional effort on your part. Over 5 years at the same rate, the compound interest advantage grows considerably larger.</p>
+
+    <h3>What is APY?</h3>
+    <p>APY stands for Annual Percentage Yield. It is the real annual rate of return on your savings account after accounting for compounding within the year. A savings account with a 4.5% APY pays 4.5% on your balance per year when compounded monthly. Always compare savings accounts using APY rather than APR — APY gives you the true picture of what you will actually earn on your money.</p>
+
+    <h3>Understanding Your Milestone Timeline</h3>
+    <p>VaultGoal breaks your savings journey into four milestones — 25%, 50%, 75% and 100% of your goal. Each milestone gives you a specific target date to aim for, making a large savings goal feel more manageable. Hitting your 25% milestone is often the hardest part psychologically; once you see real progress the habit becomes easier to maintain. Celebrating each milestone — even in a small way — significantly improves the likelihood of reaching the final goal.</p>
+  </div>
+
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
+
+  <div class="section">
+    <h2>Proven Strategies to Reach Your Savings Goal Faster</h2>
+    <p>Calculating your timeline is the first step. These strategies help you stay on track and reach your goal ahead of schedule.</p>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-icon">🏦</div><div class="tip-title">Use a High-Yield Savings Account</div><div class="tip-text">Traditional bank savings accounts often pay 0.01–0.5% APY. High-yield savings accounts at online banks currently offer 4–5% APY — up to 10 times more interest on the same balance. Moving your goal savings to a HYSA is the single easiest way to earn more without any extra effort. In Canada, holding your HYSA inside a TFSA (Tax-Free Savings Account) also shelters your interest income from tax entirely.</div></div>
+      <div class="tip-card"><div class="tip-icon">⚙️</div><div class="tip-title">Automate Transfers on Payday</div><div class="tip-text">Set up an automatic transfer from your chequing account to your savings account on the same day you receive your pay. This "pay yourself first" approach removes the temptation to spend before saving. Research consistently shows automated savers reach their goals faster than those who manually transfer money at the end of the month after other spending has occurred.</div></div>
+      <div class="tip-card"><div class="tip-icon">🎯</div><div class="tip-title">Name Your Savings Account</div><div class="tip-text">Many banks allow you to label your savings accounts with a custom name. Calling your account "House Down Payment 2026" instead of "Savings Account 2" creates a real psychological connection to your goal. Behavioural economics research shows that named goal accounts have significantly higher contribution rates and lower withdrawal rates than generic savings accounts.</div></div>
+      <div class="tip-card"><div class="tip-icon">📈</div><div class="tip-title">Redirect Every Raise</div><div class="tip-text">Whenever you receive a salary increase, direct at least 50% of the after-tax raise directly into your savings goal. Since you were not living on that money before the raise, you genuinely will not miss it — but it can dramatically accelerate your timeline. Even redirecting an extra $100 per month can move your goal date forward by several months depending on your target amount.</div></div>
+      <div class="tip-card"><div class="tip-icon">💰</div><div class="tip-title">Apply Windfalls to Your Goal</div><div class="tip-text">Tax refunds, work bonuses, cash gifts and other unexpected income are powerful opportunities to surge ahead on your savings timeline. Committing to applying at least 80% of any windfall directly to your savings goal can move your completion date forward by months. Try entering a larger current savings amount in the calculator above to see exactly how much a windfall would help.</div></div>
+      <div class="tip-card"><div class="tip-icon">📅</div><div class="tip-title">Review Progress Monthly</div><div class="tip-text">Check your savings balance on the same date each month — ideally the day after payday once your contribution has cleared. Seeing your balance grow keeps motivation high. If you fall behind in a particular month, recalculate here to adjust your timeline expectations. Knowing your exact revised target date is always better than avoiding the numbers.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Common Savings Goals — Quick Reference Guide</h2>
+    <p>Not sure what your savings target should be? Here are typical amounts for the most common savings goals, along with estimated timelines at different monthly contribution levels assuming a 4.5% APY interest rate.</p>
+    <div style="overflow-x:auto;margin-top:1rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border);">
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Goal</th>
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Typical Target</th>
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">$200/mo</th>
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">$500/mo</th>
+            <th style="text-align:left;padding:0.6rem 0.8rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">$1,000/mo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">Starter Emergency Fund</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">$1,000</td><td style="padding:0.7rem 0.8rem;">5 months</td><td style="padding:0.7rem 0.8rem;">2 months</td><td style="padding:0.7rem 0.8rem;">1 month</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">Full Emergency Fund (3 mo)</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">$9,000</td><td style="padding:0.7rem 0.8rem;">44 months</td><td style="padding:0.7rem 0.8rem;">18 months</td><td style="padding:0.7rem 0.8rem;">9 months</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">New / Used Car</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">$15,000</td><td style="padding:0.7rem 0.8rem;">72 months</td><td style="padding:0.7rem 0.8rem;">29 months</td><td style="padding:0.7rem 0.8rem;">15 months</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">House Down Payment (5%)</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">$25,000</td><td style="padding:0.7rem 0.8rem;">118 months</td><td style="padding:0.7rem 0.8rem;">47 months</td><td style="padding:0.7rem 0.8rem;">24 months</td></tr>
+          <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.7rem 0.8rem;font-weight:500;">House Down Payment (20%)</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">$100,000</td><td style="padding:0.7rem 0.8rem;">—</td><td style="padding:0.7rem 0.8rem;">185 months</td><td style="padding:0.7rem 0.8rem;">90 months</td></tr>
+          <tr><td style="padding:0.7rem 0.8rem;font-weight:500;">Vacation Fund</td><td style="padding:0.7rem 0.8rem;color:var(--muted);">$5,000</td><td style="padding:0.7rem 0.8rem;">24 months</td><td style="padding:0.7rem 0.8rem;">10 months</td><td style="padding:0.7rem 0.8rem;">5 months</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.68rem;color:var(--muted);margin-top:0.8rem;font-style:italic;">Estimates assume 4.5% APY and no existing savings. Use the calculator above for your exact numbers.</p>
+  </div>
+
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
+
+  <div class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does it take to save $10,000?</div><div class="faq-a">The time it takes to save $10,000 depends entirely on your monthly contribution and interest rate. Saving $500 per month with no interest takes exactly 20 months. At $300 per month it takes about 33 months. With a 4.5% APY high-yield savings account, the same $300 monthly contribution reaches $10,000 slightly sooner thanks to compound interest. Use the calculator above to find your exact timeline based on your specific contribution amount.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How much should I save for an emergency fund?</div><div class="faq-a">Financial experts universally recommend an emergency fund of 3 to 6 months of essential living expenses. Essential expenses include rent or mortgage, groceries, utilities, insurance premiums, and minimum debt payments — but not discretionary spending like dining out or entertainment. If your essential monthly expenses total $3,000, your emergency fund target should be $9,000 to $18,000. Start with a smaller first milestone of $1,000 to build the habit, then continue building toward the full amount.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is compound interest and how does it help my savings?</div><div class="faq-a">Compound interest means you earn interest on both your original deposits and on the interest you have already earned. Each month your savings account pays interest on your total balance — including previous interest payments. This creates a snowball effect where your money grows faster the longer it stays invested. Even a modest 4.5% APY high-yield savings account adds hundreds of dollars to a $10,000 savings journey compared to a traditional low-interest account, with zero additional effort required from you.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the best account to hold my savings goal money?</div><div class="faq-a">For short to medium-term goals of 1 to 5 years, a high-yield savings account (HYSA) is the best option — currently offering 4 to 5% APY with full liquidity and no market risk. In Canada, opening your HYSA inside a TFSA (Tax-Free Savings Account) means your interest income is completely sheltered from tax. For goals longer than 5 years, consider splitting between a HYSA and low-risk investments. Never put money earmarked for a near-term savings goal into the stock market where a downturn could delay your timeline at the worst possible moment.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is a realistic monthly savings rate?</div><div class="faq-a">Most personal finance frameworks suggest saving 20% of your after-tax (take-home) income. If you take home $4,000 per month, a 20% savings rate means setting aside $800 monthly. However any amount saved consistently is better than saving nothing. Even $100 per month adds up to $1,200 per year plus compound interest. Start with whatever amount you can reliably save every single month without exception, then gradually increase it as your income grows or your expenses decrease.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I save for a house down payment in Canada?</div><div class="faq-a">Start by knowing your target. In Canada, the minimum down payment is 5% for homes priced under $500,000, and 10% on the portion between $500,000 and $999,999. A 20% down payment eliminates mandatory CMHC mortgage insurance which can add thousands to your total mortgage cost. The First Home Savings Account (FHSA) allows first-time buyers to contribute up to $8,000 per year ($40,000 lifetime) and deduct contributions from taxable income — making it one of the most powerful savings tools available to Canadians buying their first home.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if I miss a month of contributions?</div><div class="faq-a">Missing one month will delay your goal slightly but is not a disaster. The most important thing is to return to your regular contribution the following month without trying to "catch up" with a double contribution that might strain your budget and lead to further inconsistency. Recalculate your updated timeline here so you have a clear new target date. Knowing your revised completion date is always more motivating than avoiding the numbers. Consistency over a long period matters far more than perfection in any single month.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How accurate is this savings goal calculator?</div><div class="faq-a">This calculator assumes a fixed monthly contribution amount and a constant annual interest rate compounded monthly. Real savings accounts may compound daily or at other intervals, and interest rates do change over time. The results are highly accurate estimates for planning purposes but should be treated as a guide rather than a guaranteed outcome. For the most precise figures, consult your specific bank or financial institution. We recommend recalculating whenever your contribution amount or interest rate changes.</div></div>
+  </div>
+
+  <div class="tools-panel">
     <div class="tools-panel-title">More Free Tools from Sharpline</div>
     <div class="tools-grid">
       <a href="https://503020.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">📊</div><div class="tool-name">50/30/20 Budget Calculator</div><div class="tool-desc">Split your monthly income into needs, wants and savings instantly.</div><div class="tool-link">503020.ca →</div></a>
-      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">💳</div><div class="tool-name">Debt Payoff Calculator</div><div class="tool-desc">Snowball or Avalanche — see your exact debt-free date.</div><div class="tool-link">debtcrusher.ca →</div></a>
-      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🏠</div><div class="tool-name">Canadian Mortgage Calculator</div><div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div><div class="tool-link">mortgagemasher.com →</div></a>
+      <a href="https://debtcrusher.ca" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">💳</div><div class="tool-name">Debt Payoff Calculator</div><div class="tool-desc">Snowball or Avalanche — see your exact debt-free date and interest savings.</div><div class="tool-link">debtcrusher.ca →</div></a>
+      <a href="https://mortgagemasher.com" class="tool-card" target="_blank" rel="noopener"><div class="tool-icon">🏠</div><div class="tool-name">Mortgage Calculator</div><div class="tool-desc">Monthly payment, CMHC insurance and amortization comparison.</div><div class="tool-link">mortgagemasher.com →</div></a>
     </div>
   </div>
+
 </div>
+
 <footer>
   Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
@@ -181,25 +299,29 @@
   <a href="https://www.reddit.com/user/sharplinetools/" target="_blank" rel="noopener">🟠 Reddit</a> &nbsp;·&nbsp;
   Not financial advice · Results are estimates
 </footer>
+
 <nav>
   <a href="index.html">🏠 Calculator</a>
   <a href="about.html">About</a>
   <a href="privacy.html">Privacy Policy</a>
   <a href="contact.html">Contact</a>
 </nav>
+
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
     <div class="modal-title"><button class="modal-close" onclick="closeEmailModal()">✕</button>Email Your Results</div>
-    <div><label>Recipient Email Address</label><input type="email" id="emailTo" placeholder="friend@example.com" /></div>
+    <div><label>Recipient Email</label><input type="email" id="emailTo" placeholder="friend@example.com" /></div>
     <div><label>Your Name (optional)</label><input type="text" id="emailFrom" placeholder="e.g. John" /></div>
     <button onclick="sendEmail()">Send Results →</button>
     <button class="btn-secondary" onclick="closeEmailModal()" style="margin-top:0.6rem;">Cancel</button>
-    <p class="modal-note">This will open your default email app with your results pre-filled, ready to send.</p>
+    <p class="modal-note">Opens your email app with your results pre-filled and ready to send.</p>
   </div>
 </div>
+
 <script>
   var lastResults={};
   function fmt(n){return '$'+Number(n.toFixed(0)).toLocaleString();}
+  function toggleFaq(el){el.parentElement.classList.toggle('open');}
   function calculate(){
     var name=document.getElementById('goalName').value.trim()||'My Goal';
     var target=parseFloat(document.getElementById('targetAmount').value);
@@ -221,7 +343,7 @@
     document.getElementById('dispName').textContent=name;
     document.getElementById('dispSub').textContent=fmt(current)+' saved of '+fmt(target)+' goal';
     document.getElementById('dispRemaining').textContent=fmt(remaining);
-    document.getElementById('dispMonths').textContent=months===0?"You're already there! 🎉":months===1?'1 month':months+' months';
+    document.getElementById('dispMonths').textContent=months===0?"You're there! 🎉":months===1?'1 month':months+' months';
     document.getElementById('dispDate').textContent=months===0?'—':dateStr;
     document.getElementById('ringPct').textContent=Math.round(pct)+'%';
     setTimeout(function(){document.getElementById('ringFill').style.strokeDashoffset=251.2-(pct/100)*251.2;},100);
@@ -250,16 +372,15 @@
     setTimeout(function(){document.querySelectorAll('.milestone-bar').forEach(function(bar){bar.style.width=bar.dataset.target+'%';});},200);
     var tip='';
     if(months===0){tip='🎉 <strong>Congratulations!</strong> You\'ve already reached your goal!';}
-    else if(rate===0){tip='💡 <strong>Pro tip:</strong> Put your savings in a high-yield savings account (4–5% APY) to reach your goal faster.';}
-    else if(months>24){tip='💡 <strong>Boost tip:</strong> Increasing your monthly contribution by just $50 could shave several months off your timeline.';}
-    else{tip='✅ <strong>Great pace!</strong> At '+fmt(monthly)+'/month you\'re on track to hit '+fmt(target)+' by '+dateStr+'.';}
+    else if(rate===0){tip='💡 <strong>Pro tip:</strong> Moving your savings to a high-yield savings account earning 4–5% APY can shave months off your timeline at no extra cost.';}
+    else if(months>24){tip='💡 <strong>Boost tip:</strong> Increasing your monthly contribution by just $50 could significantly shorten your timeline. Adjust the monthly field above to see the impact.';}
+    else{tip='✅ <strong>Great pace!</strong> At '+fmt(monthly)+'/month you\'re on track to reach '+fmt(target)+' by '+dateStr+'. Keep contributions automated to stay on schedule.';}
     document.getElementById('tipBox').innerHTML=tip;
     var resultsEl=document.getElementById('results');
     resultsEl.classList.add('visible');
     document.getElementById('shareRow').style.display='grid';
     resultsEl.scrollIntoView({behavior:'smooth',block:'nearest'});
   }
-  function printResults(){window.print();}
   function openEmailModal(){document.getElementById('emailModal').classList.add('open');}
   function closeEmailModal(){document.getElementById('emailModal').classList.remove('open');}
   function sendEmail(){

@@ -45,6 +45,11 @@
   nav{position:fixed;bottom:0;left:0;right:0;padding:0.8rem 3rem;border-top:1px solid var(--border);background:var(--cream);display:flex;gap:1.5rem;font-size:0.72rem;z-index:99;justify-content:center;box-shadow:0 -2px 12px rgba(15,26,15,0.06);}
   nav a{color:var(--sage);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
   nav a:hover{color:var(--gold);}
+  .guide-card{background:var(--sage-pale);border:1px solid var(--sage);border-radius:4px;padding:1.2rem;margin-bottom:2rem;text-align:center;}
+  .guide-card-title{font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--sage);margin-bottom:0.4rem;}
+  .guide-card p{font-size:0.8rem;color:var(--muted);margin-bottom:0.8rem;line-height:1.6;}
+  .guide-link{display:inline-block;color:var(--sage);text-decoration:none;font-weight:500;font-size:0.8rem;padding:0.5rem 1rem;border:1px solid var(--sage);border-radius:2px;transition:background 0.2s;}
+  .guide-link:hover{background:var(--sage);color:white;}
   .calc-section{max-width:860px;margin:2.5rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
   .panel{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:2rem;}
   .panel-title{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1.5rem;color:var(--ink);display:flex;align-items:center;gap:0.5rem;}
@@ -92,6 +97,10 @@
   .milestone-date{font-size:0.65rem;color:var(--muted);min-width:60px;}
   .tip-box{background:var(--sage-pale);border-left:3px solid var(--sage);padding:0.8rem 1rem;margin-top:1.2rem;border-radius:0 2px 2px 0;font-size:0.75rem;color:var(--sage);line-height:1.5;}
   .tip-box strong{color:var(--ink);}
+  .guide-box{background:var(--gold);color:white;border:none;padding:1rem;border-radius:2px;margin-top:1.2rem;text-align:center;display:block;}
+  .guide-box p{color:white;font-size:0.75rem;margin-bottom:0.6rem;line-height:1.6;}
+  .guide-box a{color:white;text-decoration:none;font-weight:500;display:inline-block;border:1px solid white;padding:0.5rem 1rem;border-radius:2px;transition:background 0.2s;}
+  .guide-box a:hover{background:rgba(255,255,255,0.2);}
   .side-ad{background:var(--cream);border:1px dashed var(--border);padding:0.8rem;text-align:center;color:var(--muted);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;margin-top:1.5rem;}
   .side-ad-box{background:var(--border);height:250px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.4rem;color:var(--muted);font-size:0.7rem;}
   .share-row{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border);}
@@ -158,6 +167,15 @@
   <div class="logo">Sharpline<span>.</span></div>
   <div class="tagline">Savings Goal Tracker | vaultgoal.com</div>
 </header>
+
+<div class="content-wrap">
+  <div class="guide-card">
+    <div class="guide-card-title">📖 New to goal-setting math?</div>
+    <p>Learn how to calculate your exact savings timeline, understand compound interest, and discover proven strategies to reach your goal faster.</p>
+    <a href="savings-timeline-guide.html" class="guide-link">Read the Savings Timeline Guide →</a>
+  </div>
+</div>
+
 <div class="calc-section">
   <div class="panel">
     <div class="panel-title">Your Goal</div>
@@ -191,6 +209,11 @@
       <div class="milestones" id="milestones"></div>
     </div>
     <div class="tip-box" id="tipBox"></div>
+    <div class="guide-box">
+      <p><strong>Want to understand these numbers deeper?</strong></p>
+      <p>Learn how compound interest works, strategies to accelerate your timeline, and real-world examples for different savings goals.</p>
+      <a href="savings-timeline-guide.html">Read the Full Guide →</a>
+    </div>
     <div class="share-row" id="shareRow" style="display:none;">
       <button class="btn-secondary" onclick="window.print()">🖨️ Print</button>
       <button class="btn-gold" onclick="openEmailModal()">✉️ Email Results</button>
@@ -226,6 +249,7 @@
       <div class="tip-card"><div class="tip-icon">📅</div><div class="tip-title">Review Progress Monthly</div><div class="tip-text">Check your savings balance on the same date each month — ideally the day after payday once your contribution has cleared. Seeing your balance grow keeps motivation high. If you fall behind in a particular month, recalculate here to adjust your timeline expectations. Knowing your exact revised target date is always more motivating than avoiding the numbers.</div></div>
     </div>
   </div>
+  <div class="ad-slot"><div>Advertisement</div><div class="ad-box">AdSense 728×90</div></div>
   <div class="section">
     <h2>Common Savings Goals — Quick Reference Guide</h2>
     <p>Not sure what your savings target should be? Here are typical amounts for the most common savings goals, along with estimated timelines at different monthly contribution levels assuming a 4.5% APY interest rate.</p>
@@ -274,14 +298,15 @@
 </div>
 <footer>
   Sharpline · vaultgoal.com © 2026 &nbsp;·&nbsp;
+  <a href="index.html">Calculator</a> &nbsp;·&nbsp;
   <a href="about.html">About</a> &nbsp;·&nbsp;
+  <a href="savings-timeline-guide.html">Guide</a> &nbsp;·&nbsp;
   <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-  <a href="contact.html">Contact</a> &nbsp;·&nbsp;
   <a href="https://www.instagram.com/toolssharpline/" target="_blank" rel="noopener">📷 Instagram</a> &nbsp;·&nbsp;
   <a href="https://ca.pinterest.com/09cldr3fi281mrfxxo6ojrxbxrmmk6/" target="_blank" rel="noopener">📌 Pinterest</a> &nbsp;·&nbsp;
   Not financial advice · Results are estimates
 </footer>
-<nav><a href="index.html">🏠 Calculator</a><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></nav>
+<nav><a href="index.html">🎯 Calculator</a><a href="savings-timeline-guide.html">📖 Guide</a><a href="about.html">About</a><a href="privacy.html">Privacy</a></nav>
 <div class="modal-overlay" id="emailModal">
   <div class="modal">
     <div class="modal-title"><button class="modal-close" onclick="closeEmailModal()">✕</button>Email Your Results</div>
